@@ -15,7 +15,6 @@ class SolarPowerPlants extends StatefulWidget {
 }
 
 class _SolarPowerPlantsState extends State<SolarPowerPlants> {
-
   final data = {
     "solar_30.22555____79.19587": [
       {
@@ -30,7 +29,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
       },
       {
         "Name": "Esha Farswan C/o Unique Construction",
-        "Address": "Ms Esha Farswan, Unique Constructions Co, 965, Indra Nagar, Dehradun,\n",
+        "Address":
+            "Ms Esha Farswan, Unique Constructions Co, 965, Indra Nagar, Dehradun,\n",
         "Capacity (kW)": "500",
         "Location of Plant": "Harmani, Teshil  Chamoli, ",
         "Division": "Gopeshwar",
@@ -62,7 +62,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.18092____78.35257": [
       {
         "Name": "Amar Solar",
-        "Address": "Jagdish Prasad Paliwal, Bainsoli, Talli, Tehri, Anjani Sain, ",
+        "Address":
+            "Jagdish Prasad Paliwal, Bainsoli, Talli, Tehri, Anjani Sain, ",
         "Capacity (kW)": "300",
         "Location of Plant": "Bainsoli, Talli",
         "Division": "Tehri",
@@ -98,7 +99,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.22177____77.59431": [
       {
         "Name": "Arpit Nautiyal ",
-        "Address": "Arpit Nautiyal, 267, Kaulagarh, Near Bal Culture Acadamy, Dehradun, ",
+        "Address":
+            "Arpit Nautiyal, 267, Kaulagarh, Near Bal Culture Acadamy, Dehradun, ",
         "Capacity (kW)": "100",
         "Location of Plant": " Aamwala Tarla, Pachwadoon, Dhaulas,",
         "Division": "Mohanpur",
@@ -112,7 +114,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Arvachin Solutions Pvt Ltd",
         "Address": "152 Prempur, Kaulagarh, Dehradun",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Kumardhar, Tehsil- Jakhnidhar District –Tehri Garhwal.",
+        "Location of Plant":
+            "Village- Kumardhar, Tehsil- Jakhnidhar District –Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19089",
@@ -151,10 +154,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Longitude": "78.41097"
       }
     ],
-    "solar_30.051____78.4823": [
+    "solar_30.05100____78.4823": [
       {
         "Name": "Chandra Shekhar Singh Negi",
-        "Address": "C.S.S. Negi, 20 Jagrati Vihar, Nehru Gram Natthanpur, Nehrugram,Dehradun, ",
+        "Address":
+            "C.S.S. Negi, 20 Jagrati Vihar, Nehru Gram Natthanpur, Nehrugram,Dehradun, ",
         "Capacity (kW)": "600",
         "Location of Plant": "Uregi Pauri",
         "Division": "Pauri",
@@ -168,7 +172,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Cyanic Solar Pvt. Ltd.",
         "Address": "N-352, H-15, Shivalik Nagar, BHEL, Haridwar\n\n",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhari, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhari, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54389",
@@ -178,7 +183,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.24482____77.57022": [
       {
         "Name": "Deepak Kumar ",
-        "Address": "Deepak Kumar, 58 vikas lok, lane no. 03, Adhoiwala, Dehradun-GP, ",
+        "Address":
+            "Deepak Kumar, 58 vikas lok, lane no. 03, Adhoiwala, Dehradun-GP, ",
         "Capacity (kW)": "400",
         "Location of Plant": "Dunga, Sahaspur Dehradun",
         "Division": "Mohanpur",
@@ -192,7 +198,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Dharigaon Solar Power Pvt. Ltd. ",
         "Address": "Rajendra Singh Rawat, C12 sec-1 Defence Colony, ",
         "Capacity (kW)": "600",
-        "Location of Plant": "Village Falswari, Block- Kot, Pauri, Pauri Garhwal.",
+        "Location of Plant":
+            "Village Falswari, Block- Kot, Pauri, Pauri Garhwal.",
         "Division": "Pauri",
         "District": "Pauri",
         "Latitude": "30.09073",
@@ -204,7 +211,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Divya Kiran Urja LLP",
         "Address": "25, Usha Colony, Sahastradhara Road, Dehradun, Uttarakhand",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54403",
@@ -216,7 +224,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "DS Smart Engineering Pvt Ltd",
         "Address": "Mahindra Tractor agency, Moradabad Road, Kashipur",
         "Capacity (kW)": "4000",
-        "Location of Plant": "Village Duguada ,Bagwalipokhar (Dwarahat)  District Almora, Uttarakhand.",
+        "Location of Plant":
+            "Village Duguada ,Bagwalipokhar (Dwarahat)  District Almora, Uttarakhand.",
         "Division": "Ranikhet",
         "District": "Almora",
         "Latitude": "29.42354",
@@ -226,7 +235,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.54396____78.44368": [
       {
         "Name": "Escobar Energy Pvt. Ltd.",
-        "Address": "J.S. Bisht 365, Rajeshwari Puram, Jogiwala, Nehrugram, IIP Dehradun-248005",
+        "Address":
+            "J.S. Bisht 365, Rajeshwari Puram, Jogiwala, Nehrugram, IIP Dehradun-248005",
         "Capacity (kW)": "1700",
         "Location of Plant": "Dhari Gaon, Satpuli Pauri",
         "Division": "Pauri ",
@@ -252,7 +262,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Godambari Solar Power LLP",
         "Address": "Shivapur Kotdwar, Pauri Garhwal",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village-Gojatta, Pulinda, Tehsil-Kotdwar Distt- Pauri.",
+        "Location of Plant":
+            "Village-Gojatta, Pulinda, Tehsil-Kotdwar Distt- Pauri.",
         "Division": "Kotdwar",
         "District": "Pauri",
         "Latitude": "29.47389",
@@ -262,9 +273,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.33377____78.30011": [
       {
         "Name": "Hemwati Prasad Painuly",
-        "Address": "Hemwati Prasad Painuli HNB Marg, Dhalwala, Muni ki Reti, Rishikesh",
+        "Address":
+            "Hemwati Prasad Painuli HNB Marg, Dhalwala, Muni ki Reti, Rishikesh",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village-Matti (Raimer), Block- Dunda, Distt- Uttarkashi ",
+        "Location of Plant":
+            "Village-Matti (Raimer), Block- Dunda, Distt- Uttarkashi ",
         "Division": "Uttarkashi ",
         "District": "Uttarkashi",
         "Latitude": "30.33377",
@@ -274,9 +287,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.54287____78.44303": [
       {
         "Name": "Jai Mahasu Dev Solar Pvt. Ltd.",
-        "Address": "Lane No. 4, Block C, Saraswati Vihar, Ajabpur Khurd, Dehradun",
+        "Address":
+            "Lane No. 4, Block C, Saraswati Vihar, Ajabpur Khurd, Dehradun",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54287",
@@ -358,7 +373,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.34049____77.59442": [
       {
         "Name": "Mahasudev Solar AUK (OPC) Pvt. Ltd.",
-        "Address": "Arvind Kumar Alipuria, 235, Phase-II,Vasant Vihar, Dehradun, ",
+        "Address":
+            "Arvind Kumar Alipuria, 235, Phase-II,Vasant Vihar, Dehradun, ",
         "Capacity (kW)": "1000",
         "Location of Plant": "Village- Bisoi, Block-Kalsi, Distt- Dehradun.",
         "Division": "Vikasnagar",
@@ -392,7 +408,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.3359____77.59405": [
       {
         "Name": "Mahasudev Solar VUK (OPC) Pvt. Ltd.",
-        "Address": "Vinod Chandra, Hno. 31, Kaulagarh Road, Rajendra Nagar, Dehradun, ",
+        "Address":
+            "Vinod Chandra, Hno. 31, Kaulagarh Road, Rajendra Nagar, Dehradun, ",
         "Capacity (kW)": "1000",
         "Location of Plant": "Village- Bisoi, Block-Kalsi, Distt- Dehradun.",
         "Division": "Vikasnagar",
@@ -418,7 +435,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Man Electric Power Solution Pvt Ltd.",
         "Address": "221, Vijay Park Extension, Dehradun",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village Tingari Chak (Sandul), Block-Jaunpur, District-Tehri Garhwal, Uttarakhand.",
+        "Location of Plant":
+            "Village Tingari Chak (Sandul), Block-Jaunpur, District-Tehri Garhwal, Uttarakhand.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.37004",
@@ -430,7 +448,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Moral Energy Pvt Ltd",
         "Address": "Haripur Naya Goan, PO Seemadwar",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Kumardhar , Tehsil- Jakhnidhar District –Tehri Garhwal.",
+        "Location of Plant":
+            "Village- Kumardhar , Tehsil- Jakhnidhar District –Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19452",
@@ -464,7 +483,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.01383____78.34455": [
       {
         "Name": "Renu Bisht",
-        "Address": "365, Rajeshwari Puram, Jogiwala, Nehrugram, Dehradun-248005\n",
+        "Address":
+            "365, Rajeshwari Puram, Jogiwala, Nehrugram, Dehradun-248005\n",
         "Capacity (kW)": "200",
         "Location of Plant": "Vill-Goom, PO-Amola, Pauri",
         "Division": "Pauri",
@@ -478,7 +498,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Sainath Solar energy Pvt. Ltd.",
         "Address": "Ravindra Kumar 271, Mandir Road, Girital, Kashipur",
         "Capacity (kW)": "2000",
-        "Location of Plant": "Village- Pujargaon(Dhanari), Block-Dunda Distt- Uttarkashi.",
+        "Location of Plant":
+            "Village- Pujargaon(Dhanari), Block-Dunda Distt- Uttarkashi.",
         "Division": "Uttarkashi ",
         "District": "Uttarkashi ",
         "Latitude": "30.40268",
@@ -490,7 +511,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Sanjay Agarwal",
         "Address": "Sanjay Agarwal, Street No 3, Saiyyad Mohlla, Dehradun, ",
         "Capacity (kW)": "300",
-        "Location of Plant": " Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            " Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54135",
@@ -502,7 +524,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Shree Dhaneshwar Projects Pvt. Ltd",
         "Address": "H No. 136, Tiloth Sera, Uttarkashi\n",
         "Capacity (kW)": "2000",
-        "Location of Plant": "Village- Purargaon, Dhanari, Block- Dunda, Distt- Uttarkashi.",
+        "Location of Plant":
+            "Village- Purargaon, Dhanari, Block- Dunda, Distt- Uttarkashi.",
         "Division": "Uttarkashi ",
         "District": "Uttarkashi",
         "Latitude": "30.40245",
@@ -514,7 +537,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Sowind Energy Pvt Ltd",
         "Address": "Haripur Naya Goan, PO Seemadwar",
         "Capacity (kW)": "300",
-        "Location of Plant": " Village- Kumardhar , Tehsil- Jakhnidhar District –Tehri Garhwal.",
+        "Location of Plant":
+            " Village- Kumardhar , Tehsil- Jakhnidhar District –Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19448",
@@ -524,9 +548,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.54194____78.44436": [
       {
         "Name": "Starling Energy Private Limited",
-        "Address": "Prashant Gangwar H.N.85, Lane no -5, Adarsh vihar, Banjarawala, Dehradun \n\n",
+        "Address":
+            "Prashant Gangwar H.N.85, Lane no -5, Adarsh vihar, Banjarawala, Dehradun \n\n",
         "Capacity (kW)": "1000",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Jakhanikhal, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Jakhanikhal, Distt- Pauri Garhwal.",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54194",
@@ -538,7 +564,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Subhash Chand Ramola ",
         "Address": "Chheti, Chheti Jakhnidhar, Tehri Garhwal",
         "Capacity (kW)": "100",
-        "Location of Plant": "Village-Chheti, Jakhnidhar, Distt- Tehri Garhwal. ",
+        "Location of Plant":
+            "Village-Chheti, Jakhnidhar, Distt- Tehri Garhwal. ",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19419",
@@ -550,7 +577,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Talf Asr Solar Urja Pvt Ltd",
         "Address": "Haripur Sukha, Hira Nagar, Haldwani",
         "Capacity (kW)": "1750",
-        "Location of Plant": "Village- Pattapani, kaladungi, post office –Bailpadav ,District -Nainital.",
+        "Location of Plant":
+            "Village- Pattapani, kaladungi, post office –Bailpadav ,District -Nainital.",
         "Division": "Ramnagar",
         "District": "Nainital",
         "Latitude": "29.18259",
@@ -562,7 +590,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Talf Asr Solar Urja Pvt Ltd",
         "Address": "Haripur Sukha, Hira Nagar, Haldwani",
         "Capacity (kW)": "1500",
-        "Location of Plant": "Village- Pattapani, kaladungi, post office –Bailpadav ,District -Nainital.",
+        "Location of Plant":
+            "Village- Pattapani, kaladungi, post office –Bailpadav ,District -Nainital.",
         "Division": "Ramnagar",
         "District": "Nainital",
         "Latitude": "29.18509",
@@ -574,7 +603,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Trisha Solar Pvt. Ltd. ",
         "Address": "Harish Chand Develi, Nathanpur,Nehrugram, ",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda",
         "District": "Pauri",
         "Latitude": "29.54314",
@@ -584,7 +614,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.12359____79.27547": [
       {
         "Name": "Two Mens",
-        "Address": "Satish Chand Joshi, Women's Business Org. Golcha Compound, Tanakpur Road, Haldwani, ",
+        "Address":
+            "Satish Chand Joshi, Women's Business Org. Golcha Compound, Tanakpur Road, Haldwani, ",
         "Capacity (kW)": "600",
         "Location of Plant": "Kamalwaganja, Haldwani",
         "Division": "Ramnagar",
@@ -598,7 +629,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Vimal Kishor Purwal",
         "Address": "Pipola, Ghonti, Block-Jakhnidhar, Distt-Tehri Garhwal",
         "Capacity (kW)": "200",
-        "Location of Plant": "Pipola, Ghonti, Block-Jakhnidhar, Distt-Tehri Garhwal",
+        "Location of Plant":
+            "Pipola, Ghonti, Block-Jakhnidhar, Distt-Tehri Garhwal",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.25028",
@@ -622,7 +654,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Kedar Singh Mount Energy",
         "Address": "22, Nathuwala, Bagicha, Natuhwala, ",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Kumrada, PO-Baldogi, Chinyalisaur, Uttarkashi",
+        "Location of Plant":
+            "Village- Kumrada, PO-Baldogi, Chinyalisaur, Uttarkashi",
         "Division": "Uttarkashi ",
         "District": "Uttarkashi ",
         "Latitude": "30.31403",
@@ -704,7 +737,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.55386____78.43018": [
       {
         "Name": "M/s Uttam Suntech Pvt. Ltd",
-        "Address": "Matrachaya, Near Sahkari kray vikray samiti, katoratal, Kashipur",
+        "Address":
+            "Matrachaya, Near Sahkari kray vikray samiti, katoratal, Kashipur",
         "Capacity (kW)": "1100",
         "Location of Plant": "Vill. Rautela, Satpuli, District Pauri.",
         "Division": "Pauri",
@@ -730,7 +764,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Saraswat BioSolar Initiative Private Limited ",
         "Address": "Ansal Green, Rajpur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
+        "Location of Plant":
+            "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19071",
@@ -742,7 +777,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "pranshaul bio solar",
         "Address": "Ansal Green, Rajpur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
+        "Location of Plant":
+            "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19086",
@@ -754,7 +790,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Akhilesh Solar Energy Private Limited  ",
         "Address": "272/1 Shamshergarh, dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
+        "Location of Plant":
+            "Vill. Kumardhar, Jakhnidhar, District Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19096",
@@ -836,7 +873,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.40132____79.38036": [
       {
         "Name": "jindal solar power solution pvt Ltd",
-        "Address": "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
+        "Address":
+            "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
         "Capacity (kW)": "2000",
         "Location of Plant": "Village- Valsa, Patlibagarh  Distt- Almora.",
         "Division": "Almora",
@@ -848,7 +886,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.40104____79.38311": [
       {
         "Name": "GS renewable energy solution pvt Ltd",
-        "Address": "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
+        "Address":
+            "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
         "Capacity (kW)": "2000",
         "Location of Plant": "Village- Valsa, Patlibagarh  Distt- Almora.",
         "Division": "Almora",
@@ -860,7 +899,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.40061____79.38072": [
       {
         "Name": "Jindal Akshay Urja Private Ltd",
-        "Address": "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
+        "Address":
+            "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
         "Capacity (kW)": "3000",
         "Location of Plant": "Village- Valsa, Patlibagarh  Distt- Almora.",
         "Division": "Almora",
@@ -872,7 +912,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.40083____79.38003": [
       {
         "Name": "Jindal Greentek Energy Solutions Private Ltd",
-        "Address": "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
+        "Address":
+            "C/o Northern India Seeds Pvt Ltd, Village Chikiya, Ramnagar Range, Nainital, ",
         "Capacity (kW)": "3000",
         "Location of Plant": "Village- Valsa, Patlibagarh  Distt- Almora.",
         "Division": "Almora",
@@ -920,7 +961,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.47291____79.15486": [
       {
         "Name": "KMRM Infrastructure Pvt Ltd",
-        "Address": "Shop No-G 31 (Ground floor), RR Sqaure Complex, Ratan Road, Kashipur",
+        "Address":
+            "Shop No-G 31 (Ground floor), RR Sqaure Complex, Ratan Road, Kashipur",
         "Capacity (kW)": "3500",
         "Location of Plant": "Village- Parthola, Bhikiyasain.",
         "Division": "Bhikiyasen",
@@ -956,7 +998,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.37066____77.53171": [
       {
         "Name": "Dardour Solar Pvt Ltd",
-        "Address": "House  No A-25, Vivekanand, Gram Phase-II, Nathanpur, Dehradun",
+        "Address":
+            "House  No A-25, Vivekanand, Gram Phase-II, Nathanpur, Dehradun",
         "Capacity (kW)": "500",
         "Location of Plant": "Village- Udpalta,  Distt- Dehradun.",
         "Division": "Mohanpur",
@@ -982,7 +1025,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Pingle Energy Pvt Ltd",
         "Address": "H-No 28G, Nehru Colony, Dehradun",
         "Capacity (kW)": "3000",
-        "Location of Plant": "Village- Bhainga, block- Pratap nagar District –Tehri Garhwal.",
+        "Location of Plant":
+            "Village- Bhainga, block- Pratap nagar District –Tehri Garhwal.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.29113",
@@ -1006,7 +1050,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Presky Energy Pvt Ltd",
         "Address": "Vijay Park Ext. Dehradun",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Udpalta , Block- Kalsi ,  District -Dehradun.",
+        "Location of Plant":
+            "Village- Udpalta , Block- Kalsi ,  District -Dehradun.",
         "Division": "Vikasnagar",
         "District": "Dehradun",
         "Latitude": "30.37035",
@@ -1018,7 +1063,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ANKAN GARG",
         "Address": "178/2, Saharanpur Road, East Patel Nagar, Dehradun",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54387",
@@ -1030,7 +1076,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "APARNA RAWAT",
         "Address": "D-93, Nehru Colony, D.dun.",
         "Capacity (kW)": "800",
-        "Location of Plant": "Village- Dhyadi, Teh- Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Teh- Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54351",
@@ -1042,7 +1089,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARSG BHANU UDAY LLP",
         "Address": "25, Usha Colony, Sahastradhara Road, D.dun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54371",
@@ -1054,7 +1102,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARSG SOL SHINE LLP",
         "Address": "25, Usha Colony, Sahastradhara Road, D.dun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54399",
@@ -1064,9 +1113,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.22592____78.32354": [
       {
         "Name": "AV SUN POWER PVT. LTD.",
-        "Address": "H.No..F-8, THDC Colony, Kedarpuram, Doon University, D.dun.",
+        "Address":
+            "H.No..F-8, THDC Colony, Kedarpuram, Doon University, D.dun.",
         "Capacity (kW)": "1000",
-        "Location of Plant": "Village- Siloli, Rajakhet , Distt. –Tehri Garhwal.",
+        "Location of Plant":
+            "Village- Siloli, Rajakhet , Distt. –Tehri Garhwal.",
         "Division": "New Tehri",
         "District": "Tehri",
         "Latitude": "30.22592",
@@ -1126,7 +1177,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "DEEPTI GOYAL",
         "Address": "590/1,Bailpadav, Kaladungi, Nainital",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Bailparao , kaladungi District –Nainital.",
+        "Location of Plant":
+            "Village- Bailparao , kaladungi District –Nainital.",
         "Division": "Ramnagar",
         "District": "Nainital",
         "Latitude": "29.18259",
@@ -1138,7 +1190,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "NETRA MANI MALASI",
         "Address": "55/4, Judge Colony, Bhagarathi Enclave Balbir Road, D.Dun",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Sumari, Block-Khirsu, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Sumari, Block-Khirsu, Distt- Pauri Garhwal.",
         "Division": "Srinagar",
         "District": "Pauri",
         "Latitude": "30.12127",
@@ -1150,7 +1203,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "GANGAY ENERGY PVT. LTD.",
         "Address": "Ashiyana Bhawan Bhatwari, uttarakashi, ",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village Resgi (Gilkhor) Dunda , District Uttarkashi.",
+        "Location of Plant":
+            "Village Resgi (Gilkhor) Dunda , District Uttarkashi.",
         "Division": "Uttarkashi",
         "District": "Uttarkashi",
         "Latitude": "30.40053",
@@ -1162,7 +1216,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ANITA GOEL",
         "Address": "N-352,Shivalik Nagar, Ranipur Range, BHEL,Haridwar-249403",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhyadi, Teh- Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Teh- Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54322",
@@ -1186,7 +1241,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "HELIORIM LLP",
         "Address": "25, Usha Colony, Sahastradhara Road, D.dun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54317",
@@ -1210,7 +1266,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "HIRA SINGH NEGI",
         "Address": "Village- Dohaniya ,Kotabagh , District -Nainital.",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dohaniya ,Kotabagh , District -Nainital.",
+        "Location of Plant":
+            "Village- Dohaniya ,Kotabagh , District -Nainital.",
         "Division": "Ramnagar",
         "District": "Nainital",
         "Latitude": "29.23275",
@@ -1258,7 +1315,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "GREENOSYS ENERGY SOLUTIONS PVT. LTD.",
         "Address": "Village sankari , block Tholdhar, District Tehri Garhwal",
         "Capacity (kW)": "400",
-        "Location of Plant": "Village sankari , block Tholdhar, District Tehri Garhwal",
+        "Location of Plant":
+            "Village sankari , block Tholdhar, District Tehri Garhwal",
         "Division": "New Tehri",
         "District": "Tehri",
         "Latitude": "30.28416",
@@ -1292,9 +1350,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.32182____78.21007": [
       {
         "Name": "MAHADEV SINGH GANGARI",
-        "Address": "Gangari Bhawan, ward no. 11, gyansu Uttarakashi, Block-Dunda",
+        "Address":
+            "Gangari Bhawan, ward no. 11, gyansu Uttarakashi, Block-Dunda",
         "Capacity (kW)": "200",
-        "Location of Plant": " Village Malli , District Uttarkashi, Uttarakhand",
+        "Location of Plant":
+            " Village Malli , District Uttarkashi, Uttarakhand",
         "Division": "Uttarkashi",
         "District": "Uttarkashi",
         "Latitude": "30.32182",
@@ -1304,7 +1364,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.32183____78.21031": [
       {
         "Name": "MAMTA ENTERPRISES",
-        "Address": "Near Rajkiy samprekshan grah Lower Mall Road, pandeykhola, almora",
+        "Address":
+            "Near Rajkiy samprekshan grah Lower Mall Road, pandeykhola, almora",
         "Capacity (kW)": "200",
         "Location of Plant": "Village- Malli Lakhnadi, Distt-Almora.",
         "Division": "Almora",
@@ -1318,7 +1379,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "MANAS GARG",
         "Address": "178/2, Saharanpur Road, East Patel Nagar, Dehradun",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54324",
@@ -1328,9 +1390,9 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.18229____79.31111": [
       {
         "Name": "MOHAN SINGH RAWAT",
-        "Address": "village Ghuni Tehsail Ghat, Chamoli",
+        "Address": "Village Ghuni Tehsail Ghat, Chamoli",
         "Capacity (kW)": "100",
-        "Location of Plant": "village Ghuni Tehsail Ghat, Chamoli",
+        "Location of Plant": "Village Ghuni Tehsail Ghat, Chamoli",
         "Division": "Gopeshwar",
         "District": "Chamoli",
         "Latitude": "30.18229",
@@ -1354,7 +1416,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "NITIN AGARWAL",
         "Address": "590/1, Bailpadav, Kaladungi, Nainital",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Bailparao , kaladungi District –Nainital.",
+        "Location of Plant":
+            "Village- Bailparao , kaladungi District –Nainital.",
         "Division": "Nainital",
         "District": "Nainital",
         "Latitude": "29.17442",
@@ -1366,7 +1429,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "NEELAM RAWAT",
         "Address": "Village Lingwana, PO-Pujar Gaon, Distt- Tehri",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village Lingwana, District Jamnikhal, Uttarakhand.",
+        "Location of Plant":
+            "Village Lingwana, District Jamnikhal, Uttarakhand.",
         "Division": "Srinagar",
         "District": "Pauri",
         "Latitude": "30.17249",
@@ -1414,7 +1478,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "RAJESH KUMAR NATH",
         "Address": "396-Harchawala, tapowan, d.dun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Kumardhar, jakhnidhar , District -Tehri.",
+        "Location of Plant":
+            "Village- Kumardhar, jakhnidhar , District -Tehri.",
         "Division": "Tehri",
         "District": "Tehri",
         "Latitude": "30.19447",
@@ -1450,7 +1515,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "SANJAY GOYAL",
         "Address": "590/1, Bailpadav, Kaladungi, Nainital",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- Bailparao , kaladungi District –Nainital.",
+        "Location of Plant":
+            "Village- Bailparao , kaladungi District –Nainital.",
         "Division": "Ramnagar",
         "District": "Nainital",
         "Latitude": "29.18238",
@@ -1462,7 +1528,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "SEEMA GARG",
         "Address": "178/2, Saharanpur Road, East Patel Nagar, Dehradun",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54514",
@@ -1474,7 +1541,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "SHASHI GARG",
         "Address": "178/2, Saharanpur Road, East Patel Nagar, Dehradun",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54218",
@@ -1486,7 +1554,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "SHASHI MALASI",
         "Address": "Villa No.A-72, Panache Valley, Sahastradhara Road, D.dun",
         "Capacity (kW)": "100",
-        "Location of Plant": "Village- Sumari, Block-Khirsu, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Sumari, Block-Khirsu, Distt- Pauri Garhwal.",
         "Division": "Srinagar",
         "District": "Pauri",
         "Latitude": "30.12141",
@@ -1532,9 +1601,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.32513____78.30038": [
       {
         "Name": "SHREE NEELKANTH POWER PROJECT",
-        "Address": "Village-45 Gorsara, PO- Raimer, Block- Dunda, Distt- Uttarkashi.",
+        "Address":
+            "Village-45 Gorsara, PO- Raimer, Block- Dunda, Distt- Uttarkashi.",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Gorsara, PO- Raimer, Block- Dunda, Distt- Uttarkashi.",
+        "Location of Plant":
+            "Village- Gorsara, PO- Raimer, Block- Dunda, Distt- Uttarkashi.",
         "Division": "Uttarkashi",
         "District": "Uttarkashi",
         "Latitude": "30.32513",
@@ -1592,9 +1663,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_30.041911____78.21554": [
       {
         "Name": "SURESH KAPRUWAN",
-        "Address": "Village- Amdi, P.O- Diuli Kothar, Block- Yamkeshwer, Distt- Pauri.",
+        "Address":
+            "Village- Amdi, P.O- Diuli Kothar, Block- Yamkeshwer, Distt- Pauri.",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Amdi, P.O- Diuli Kothar, Block- Yamkeshwer, Distt- Pauri.",
+        "Location of Plant":
+            "Village- Amdi, P.O- Diuli Kothar, Block- Yamkeshwer, Distt- Pauri.",
         "Division": "Kotdwar",
         "District": "Pauri",
         "Latitude": "30.041911",
@@ -1628,9 +1701,11 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
     "solar_29.59441____78.39565": [
       {
         "Name": "TAPISH SOLAR PVT. LTD.",
-        "Address": "Village Dhari khal, Tehsil-Yamkeshwar, District Pauri, Uttarakhand.",
+        "Address":
+            "Village Dhari khal, Tehsil-Yamkeshwar, District Pauri, Uttarakhand.",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village Dhari khal , District Pauri, Uttarakhand.",
+        "Location of Plant":
+            "Village Dhari khal , District Pauri, Uttarakhand.",
         "Division": "Kotdwar",
         "District": "Pauri",
         "Latitude": "29.59441",
@@ -1726,7 +1801,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Vinay kumar 4.69",
         "Address": "Vill-Dhyari, Ekeshwar road, satpuli, pauri",
         "Capacity (kW)": "500",
-        "Location of Plant": "Village- dhyadi , Tehsil- Satpuli, District -pauri.",
+        "Location of Plant":
+            "Village- dhyadi , Tehsil- Satpuli, District -pauri.",
         "Division": "Pauri",
         "District": "Pauri",
         "Latitude": "29.54114",
@@ -1738,7 +1814,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Ram Manglam Energy and Const. Pvt. Ltd.",
         "Address": "Village- Anjnisain,Block- Jakhnidhar, Tehri Garhwal.",
         "Capacity (kW)": "300",
-        "Location of Plant": "Village- Anjnisain,Block- Jakhnidhar, Tehri Garhwal.",
+        "Location of Plant":
+            "Village- Anjnisain,Block- Jakhnidhar, Tehri Garhwal.",
         "Division": "New Tehri",
         "District": "Tehri",
         "Latitude": "30.18199",
@@ -1762,7 +1839,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARGS SOLAR WAVES ENERGY",
         "Address": "11, Narendra Vihar, Ballupur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54187",
@@ -1774,7 +1852,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARGS Sundeck",
         "Address": "11, Narendra Vihar, Ballupur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54131",
@@ -1798,7 +1877,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARGS Solar Energy",
         "Address": "11, Narendra Vihar, Ballupur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54102",
@@ -1810,7 +1890,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "ARGS Helios Solar Energy",
         "Address": "11, Narendra Vihar, Ballupur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54098",
@@ -1822,7 +1903,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "AR Sunrays",
         "Address": "11, Narendra Vihar, Ballupur Road, Dehradun",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Dhyadi, Tehsil-Satpuli, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.54046",
@@ -1868,7 +1950,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Yogesh Joshi",
         "Address": "Mohalla Jhijhad, tripura sundari, almora",
         "Capacity (kW)": "100",
-        "Location of Plant": "Village- Khas Tilari , Barechhima, District -Almora.",
+        "Location of Plant":
+            "Village- Khas Tilari , Barechhima, District -Almora.",
         "Division": "Almora",
         "District": "Almora",
         "Latitude": "29.39099",
@@ -1880,7 +1963,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Himanshul Tilara",
         "Address": "Talla Thapaliya, Near prerna sadan, Almora",
         "Capacity (kW)": "200",
-        "Location of Plant": "Village- Khas Tilari , Barechhima, District -Almora.",
+        "Location of Plant":
+            "Village- Khas Tilari , Barechhima, District -Almora.",
         "Division": "Almora",
         "District": "Almora",
         "Latitude": "29.39093",
@@ -1952,7 +2036,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Riva Energy Private Limited",
         "Address": "H.No. 54 Govindpuri, Ranipur More, Haridwar-249401",
         "Capacity (kW)": "1200",
-        "Location of Plant": "Vill. Tuniyar, Jakhnidhar, District Tehri Garhwal.",
+        "Location of Plant":
+            "Vill. Tuniyar, Jakhnidhar, District Tehri Garhwal.",
         "Division": "New Tehri",
         "District": "Tehri",
         "Latitude": "30.24129",
@@ -1964,7 +2049,8 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         "Name": "Panau Rural Development Private Ltd.",
         "Address": "187, Araghar, Haridwar Road, Ajabpur, Dehradun-248001",
         "Capacity (kW)": "800",
-        "Location of Plant": "Village- Panau, Block-Thailisain, Distt- Pauri Garhwal.",
+        "Location of Plant":
+            "Village- Panau, Block-Thailisain, Distt- Pauri Garhwal.",
         "Division": "Nainidanda (G)",
         "District": "Pauri",
         "Latitude": "29.28332",
@@ -1988,20 +2074,17 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
   @override
   void initState() {
     super.initState();
-    SharedPreferences.getInstance().then((prefs){
+    SharedPreferences.getInstance().then((prefs) {
       prefs.clear();
-      for (var key in data.keys){
-        var encodedData = jsonEncode(data);
+      for (var key in data.keys) {
+        var encodedData = jsonEncode(data[key]);
         prefs.setString(key, encodedData);
       }
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-
     List<Marker> points = [];
 
     List<double> latitudes = [
@@ -2347,62 +2430,62 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
           height: 80,
           builder: (context) => GestureDetector(
             child: Icon(
-              Icons.location_on,
+              Icons.location_on_outlined,
               size: 25,
-              color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-                  .withOpacity(1.0),
+              color: const Color(0xFFFF0000).withOpacity(1.0),
             ),
-            onTap: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      padding: const EdgeInsets.all(30),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            bottom: (MediaQuery.of(context).size.height -
-                                (MediaQuery.of(context).padding.top +
-                                    kToolbarHeight)) /
-                                4,
-                            child: AnimatedContainer(
-                              duration: const Duration(seconds: 2),
-                              child: Center(
-                                child: Container(
-                                  margin: const EdgeInsets.all(20),
-                                  padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-                                  width: 2 * MediaQuery.of(context).size.width / 3,
-                                  // height: MediaQuery.of(context).size.height - (MediaQuery.of(context).padding.top + kToolbarHeight),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blue[100],
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                          color: Colors.black,
-                                          width: 2,
-                                          style: BorderStyle.solid)),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.end,
-                                        children: [
-                                          IconButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              icon: const Icon(
-                                                Icons.close,
-                                                color: Colors.black,
-                                              ))
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+            onTap: () async {
+              final key = "solar_" +
+                  latitudes[i].toString() +
+                  "____" +
+                  longitudes[i].toString();
+              var result = await getData(key);
+              // result = result as Map<String, String>;
+              // // for (var x in result.keys){
+              // //   print(result[x].runtimeType);
+              // // }
+              showDialog(context: context, builder: (context) {
+                    return Positioned(
+                      child: Container(
+                        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2, left: 20, right: 20, bottom: 20),
+                        padding: const EdgeInsets.all(10),
+                        width: 2.75 * MediaQuery.of(context).size.width / 3,
+                        decoration: BoxDecoration(
+                            color: Colors.blue[100],
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color: Colors.black,
+                                width: 2,
+                                style: BorderStyle.solid)),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                const Text(
+                                  'Plant Details',
+                                  style: TextStyle(fontSize: 16),
                                 ),
-                              )
+                                Spacer(),
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    icon: const Icon(
+                                      Icons.close,
+                                      color: Colors.black,
+                                    ))
+                              ],
                             ),
-                          )
-                        ],
+                            Text(
+                              result
+                                  .toString()
+                                  .toUpperCase()
+                                  .substring(2, result.toString().length - 2),
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(fontSize: 13),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   });
@@ -2412,8 +2495,6 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         points.add(marker);
       }
     }
-
-
 
     return Scaffold(
       appBar: AppBar(
@@ -2498,5 +2579,12 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         ],
       ),
     );
+  }
+
+  getData(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    var data_item = prefs.getString(key);
+    var final_data = jsonDecode(data_item!);
+    return final_data;
   }
 }

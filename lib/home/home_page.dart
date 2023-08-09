@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    EasyLoading.dismiss();
     setState(() {
       photoHeight = (MediaQuery.of(context).size.width - 120) / 4;
     });
@@ -147,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      duration: const Duration(seconds: 6),
+                      duration: const Duration(seconds: 4),
                     ),
                   ),
                 ),
@@ -167,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    duration: const Duration(seconds: 6),
+                    duration: const Duration(seconds: 4),
                     padding: const EdgeInsets.only(right: 60, left: 0),
                     child: const Center(
                       child: Text('Uttarakhand Space Application Center', textAlign: TextAlign.left, style: TextStyle(fontSize: 13),),
@@ -190,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    duration: const Duration(seconds: 6),
+                    duration: const Duration(seconds: 4),
                   ),
                 ),
                 //Bottom Container
@@ -210,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      duration: const Duration(seconds: 6),
+                      duration: const Duration(seconds: 4),
                       child: const Center(
                         child: Text('Copyright @ U-SAC 2023', textAlign: TextAlign.left,),
                       ),
