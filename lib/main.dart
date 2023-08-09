@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:usac_map_app/home/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   configLoading();
   runApp(const MyApp());
 }

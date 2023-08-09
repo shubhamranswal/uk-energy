@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:usac_map_app/maps/solar_projects.dart';
 import 'package:usac_map_app/maps/test_map.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,21 +50,22 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height - 40,
                 child: ListView(
                   children: [
-                    DrawerHeader(
-                        padding: EdgeInsets.zero,
-                        child: Image.asset('assests/USAC_Bulding_1.jpg')),
+                    SizedBox(height: 25,),
                     ListTile(
                       leading: const Icon(Icons.home),
                       title: const Text('Home '),
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
                       selected: _selectedIndex == 0,
                       onTap: () {
                         _onItemTapped(0, 'Home');
                         Navigator.pop(context);
                       },
                     ),
-                    const Divider(),
                     ListTile(
                       leading: const Icon(Icons.info),
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
                       title: const Text('About'),
                       selected: _selectedIndex == 1,
                       onTap: () {
@@ -71,18 +73,9 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pop(context);
                       },
                     ),
-                    const Divider(),
                     ListTile(
-                      leading: const Icon(Icons.person_2),
-                      title: const Text('Team'),
-                      selected: _selectedIndex == 2,
-                      onTap: () {
-                        _onItemTapped(2, 'Team');
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const Divider(),
-                    ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
                       leading: const Icon(Icons.person_2),
                       title: const Text('Contact'),
                       selected: _selectedIndex == 3,
@@ -346,7 +339,7 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: (){
                               EasyLoading.show();
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>TestMap()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const SolarPowerPlants()));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
