@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'dart:math' as math;
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SolarPowerPlants extends StatefulWidget {
@@ -2435,15 +2433,12 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
               color: const Color(0xFFFF0000).withOpacity(1.0),
             ),
             onTap: () async {
-              final key = "solar_" +
-                  latitudes[i].toString() +
-                  "____" +
-                  longitudes[i].toString();
+              final key = "solar_${latitudes[i]}____${longitudes[i]}";
               var result = await getData(key);
               // result = result as Map<String, String>;
-              // // for (var x in result.keys){
-              // //   print(result[x].runtimeType);
-              // // }
+              // for (var x in result.keys){
+              //   print(result[x].runtimeType);
+              // }
               showDialog(context: context, builder: (context) {
                     return Positioned(
                       child: Container(

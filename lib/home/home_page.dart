@@ -237,20 +237,20 @@ class _HomePageState extends State<HomePage> {
                                     const Text("U-SAC\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12),)
                                   ],
                                 ),
-                                //CM
-                                Column(
-                                  children: [
-                                    Image.asset('assests/thumbnails/cm.jpg', height: photoHeight),
-                                    const SizedBox(height: 2,),
-                                    const Text("CM\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12))
-                                  ],
-                                ),
                                 //Governor
                                 Column(
                                   children: [
                                     Image.asset('assests/thumbnails/governor.jpg', height: photoHeight),
                                     const SizedBox(height: 2,),
                                     const Text("Governor\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12))
+                                  ],
+                                ),
+                                //CM
+                                Column(
+                                  children: [
+                                    Image.asset('assests/thumbnails/cm.jpg', height: photoHeight),
+                                    const SizedBox(height: 2,),
+                                    const Text("CM\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12))
                                   ],
                                 ),
                               ],
