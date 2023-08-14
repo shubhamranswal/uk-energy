@@ -2440,47 +2440,45 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
               //   print(result[x].runtimeType);
               // }
               showDialog(context: context, builder: (context) {
-                    return Positioned(
-                      child: Container(
-                        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2, left: 20, right: 20, bottom: 20),
-                        padding: const EdgeInsets.all(10),
-                        width: 2.75 * MediaQuery.of(context).size.width / 3,
-                        decoration: BoxDecoration(
-                            color: Colors.blue[100],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                                color: Colors.black,
-                                width: 2,
-                                style: BorderStyle.solid)),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                const Text(
-                                  'Plant Details',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                Spacer(),
-                                IconButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    icon: const Icon(
-                                      Icons.close,
-                                      color: Colors.black,
-                                    ))
-                              ],
-                            ),
-                            Text(
-                              result
-                                  .toString()
-                                  .toUpperCase()
-                                  .substring(2, result.toString().length - 2),
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(fontSize: 13),
-                            ),
-                          ],
-                        ),
+                    return Container(
+                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2, left: 20, right: 20, bottom: 20),
+                      padding: const EdgeInsets.all(10),
+                      width: 2.75 * MediaQuery.of(context).size.width / 3,
+                      decoration: BoxDecoration(
+                          color: Colors.blue[100],
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                              color: Colors.black,
+                              width: 2,
+                              style: BorderStyle.solid)),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Text(
+                                'Plant Details',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              Spacer(),
+                              IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: const Icon(
+                                    Icons.close,
+                                    color: Colors.black,
+                                  ))
+                            ],
+                          ),
+                          Text(
+                            result
+                                .toString()
+                                .toUpperCase()
+                                .substring(2, result.toString().length - 2),
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 13),
+                          ),
+                        ],
                       ),
                     );
                   });
