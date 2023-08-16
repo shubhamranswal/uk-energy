@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:usac_map_app/maps/solar_projects.dart';
 import 'package:usac_map_app/maps/test_map.dart';
@@ -21,18 +22,24 @@ class _HomePageState extends State<HomePage> {
 
   double photoHeight = 60;
 
+  var nameController = TextEditingController();
+  var organizationController = TextEditingController();
+  var emailController = TextEditingController();
+  var phoneController = TextEditingController();
+  var messageController = TextEditingController();
+  var contactFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-
     EasyLoading.dismiss();
     setState(() {
       photoHeight = (MediaQuery.of(context).size.width - 120) / 4;
     });
 
-
-    Future.delayed(const Duration(seconds: 2)).then((value){
+    Future.delayed(const Duration(seconds: 2)).then((value) {
       setState(() {
-        changingHeight = MediaQuery.of(context).size.height - (MediaQuery.of(context).padding.top + kToolbarHeight + 60);
+        changingHeight = MediaQuery.of(context).size.height -
+            (MediaQuery.of(context).padding.top + kToolbarHeight + 60);
         changingWidth = MediaQuery.of(context).size.width - 60;
       });
     });
@@ -51,7 +58,9 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height - 40,
                 child: ListView(
                   children: [
-                    SizedBox(height: 25,),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     ListTile(
                       leading: const Icon(Icons.home),
                       title: const Text('Home '),
@@ -86,8 +95,7 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ],
-                )
-            ),
+                )),
             Expanded(
               child: Align(
                   alignment: Alignment.bottomLeft,
@@ -100,9 +108,7 @@ class _HomePageState extends State<HomePage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 12),
                         ),
-                      )
-                  )
-              ),
+                      ))),
             )
           ],
         ),
@@ -157,23 +163,26 @@ class _HomePageState extends State<HomePage> {
                   right: 0,
                   top: 20,
                   child: AnimatedContainer(
-                    width: changingWidth,
-                    height: 40,
-                    decoration: const ShapeDecoration(
-                      color: Colors.black12,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 0.50,
-                          strokeAlign: BorderSide.strokeAlignCenter,
+                      width: changingWidth,
+                      height: 40,
+                      decoration: const ShapeDecoration(
+                        color: Colors.black12,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 0.50,
+                            strokeAlign: BorderSide.strokeAlignCenter,
+                          ),
                         ),
                       ),
-                    ),
-                    duration: const Duration(seconds: 4),
-                    padding: const EdgeInsets.only(right: 60, left: 0),
-                    child: const Center(
-                      child: Text('Uttarakhand Space Application Center', textAlign: TextAlign.left, style: TextStyle(fontSize: 13),),
-                    )
-                  ),
+                      duration: const Duration(seconds: 4),
+                      padding: const EdgeInsets.only(right: 60, left: 0),
+                      child: const Center(
+                        child: Text(
+                          'Uttarakhand Space Application Center',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      )),
                 ),
                 //Right Container
                 Positioned(
@@ -213,10 +222,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                       duration: const Duration(seconds: 4),
                       child: const Center(
-                        child: Text('Copyright @ U-SAC 2023', textAlign: TextAlign.left,),
+                        child: Text(
+                          'Copyright @ U-SAC 2023',
+                          textAlign: TextAlign.left,
+                        ),
                       ),
-                    )
-                ),
+                    )),
                 //Home - Options
                 Container(
                     margin: const EdgeInsets.all(65),
@@ -232,43 +243,68 @@ class _HomePageState extends State<HomePage> {
                                 //Logo
                                 Column(
                                   children: [
-                                    Image.asset('assests/uttarakhand_shasan.jpg', height: photoHeight),
-                                    const SizedBox(height: 2,),
-                                    const Text("U-SAC\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12),)
+                                    Image.asset(
+                                        'assests/uttarakhand_shasan.jpg',
+                                        height: photoHeight),
+                                    const SizedBox(
+                                      height: 2,
+                                    ),
+                                    const Text(
+                                      "U-SAC\nUttarakhand",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 12),
+                                    )
                                   ],
                                 ),
                                 //Governor
                                 Column(
                                   children: [
-                                    Image.asset('assests/thumbnails/governor.jpg', height: photoHeight),
-                                    const SizedBox(height: 2,),
-                                    const Text("Governor\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12))
+                                    Image.asset(
+                                        'assests/thumbnails/governor.jpg',
+                                        height: photoHeight),
+                                    const SizedBox(
+                                      height: 2,
+                                    ),
+                                    const Text("Governor\nUttarakhand",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12))
                                   ],
                                 ),
                                 //CM
                                 Column(
                                   children: [
-                                    Image.asset('assests/thumbnails/cm.jpg', height: photoHeight),
-                                    const SizedBox(height: 2,),
-                                    const Text("CM\nUttarakhand", textAlign: TextAlign.center, style: TextStyle(fontSize: 12))
+                                    Image.asset('assests/thumbnails/cm.jpg',
+                                        height: photoHeight),
+                                    const SizedBox(
+                                      height: 2,
+                                    ),
+                                    const Text("CM\nUttarakhand",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12))
                                   ],
                                 ),
                               ],
                             ),
                           ),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               EasyLoading.show();
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>TestMap()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const TestMap()));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assests/thumbnails/power_generation.webp'), fit: BoxFit.cover)
-                              ),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assests/thumbnails/power_generation.webp'),
+                                      fit: BoxFit.cover)),
                               height: MediaQuery.of(context).size.height / 6,
                               child: ClipRRect(
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                                   child: Container(
                                     color: Colors.white.withOpacity(0.65),
                                     child: const Center(
@@ -284,18 +320,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const Divider(),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               EasyLoading.show();
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>TestMap()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const TestMap()));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assests/thumbnails/power_transmission.webp'), fit: BoxFit.cover)
-                              ),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assests/thumbnails/power_transmission.webp'),
+                                      fit: BoxFit.cover)),
                               height: MediaQuery.of(context).size.height / 6,
                               child: ClipRRect(
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                                   child: Container(
                                     color: Colors.white.withOpacity(0.65),
                                     child: const Center(
@@ -311,18 +353,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const Divider(),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               EasyLoading.show();
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>TestMap()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const TestMap()));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assests/thumbnails/power_distribution.jpg'), fit: BoxFit.cover)
-                              ),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assests/thumbnails/power_distribution.jpg'),
+                                      fit: BoxFit.cover)),
                               height: MediaQuery.of(context).size.height / 6,
                               child: ClipRRect(
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                                   child: Container(
                                     color: Colors.white.withOpacity(0.65),
                                     child: const Center(
@@ -338,18 +386,25 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const Divider(),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               EasyLoading.show();
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const SolarPowerPlants()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SolarPowerPlants()));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assests/thumbnails/solar_power_plant.webp'), fit: BoxFit.cover)
-                              ),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assests/thumbnails/solar_power_plant.webp'),
+                                      fit: BoxFit.cover)),
                               height: MediaQuery.of(context).size.height / 6,
                               child: ClipRRect(
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                                   child: Container(
                                     color: Colors.white.withOpacity(0.65),
                                     child: const Center(
@@ -373,11 +428,11 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return WillPopScope(
             child: Scaffold(
-          backgroundColor: Colors.orangeAccent,
-          body: Card(
-            margin: const EdgeInsets.all(10),
-            child: SingleChildScrollView(
-                child: Container(
+              backgroundColor: Colors.orangeAccent,
+              body: Card(
+                margin: const EdgeInsets.all(10),
+                child: SingleChildScrollView(
+                    child: Container(
                   margin: const EdgeInsets.all(7.5),
                   padding: const EdgeInsets.all(5),
                   child: Column(
@@ -402,15 +457,17 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 )),
-          ),
-        ),
+              ),
+            ),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
             });
       case 2:
         return WillPopScope(
-            child: Container(color: Colors.blueAccent,),
+            child: Container(
+              color: Colors.blueAccent,
+            ),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
@@ -418,9 +475,9 @@ class _HomePageState extends State<HomePage> {
       case 3:
         return WillPopScope(
             child: Scaffold(
-              backgroundColor: Colors.orangeAccent,
               body: SingleChildScrollView(
-                child: Card(
+                child: Form(
+                    key: contactFormKey,
                     child: Column(
                       children: [
                         Container(
@@ -430,7 +487,8 @@ class _HomePageState extends State<HomePage> {
                         const ListTile(
                           leading: Icon(Icons.person),
                           title: Text('Director'),
-                          subtitle: Text('Uttarakhand Space Application Center'),
+                          subtitle:
+                              Text('Uttarakhand Space Application Center'),
                         ),
                         const ListTile(
                           leading: Icon(null),
@@ -446,8 +504,8 @@ class _HomePageState extends State<HomePage> {
                         const ListTile(
                           leading: Icon(Icons.location_on),
                           title: Text('Uttarakhand Antriksh Bhavan'),
-                          subtitle:
-                          Text('Upper Aamwala, Nalapani, Dehradun, Uttarakhand'),
+                          subtitle: Text(
+                              'Upper Aamwala, Nalapani, Dehradun, Uttarakhand'),
                         ),
                         const ListTile(
                           leading: Icon(Icons.phone),
@@ -457,6 +515,158 @@ class _HomePageState extends State<HomePage> {
                           leading: Icon(Icons.email),
                           title: Text('usac_hq@yahoo.co.in'),
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Divider(),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'On send us a message directly!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 6.0, left: 1.0, right: 1.0),
+                          child: TextFormField(
+                            validator: (name) {
+                              if (name == null || name.isEmpty) {
+                                return 'Invalid Name!';
+                              }
+                              return null;
+                            },
+                            controller: nameController,
+                            autofocus: false,
+                            keyboardType: TextInputType.name,
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.black),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              labelText: 'Full Name',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 6.0, left: 1.0, right: 1.0),
+                          child: TextFormField(
+                            validator: (organization) {
+                              if (organization == null ||
+                                  organization.isEmpty) {
+                                return 'Invalid Organization!';
+                              }
+                              return null;
+                            },
+                            controller: organizationController,
+                            maxLines: 3,
+                            autofocus: false,
+                            keyboardType: TextInputType.streetAddress,
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.black),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              labelText: 'Affiliated Organization (Department)',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 6.0, left: 1.0, right: 1.0),
+                          child: TextFormField(
+                            validator: (email) {
+                              if (email == null || email.isEmpty) {
+                                return 'Invalid Email!';
+                              }
+                              return null;
+                            },
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              labelText: 'Contact Email',
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            style:
+                                const TextStyle(fontSize: 16.0, color: Colors.black),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 6.0, left: 1.0, right: 1.0),
+                          child: TextFormField(
+                            validator: (phoneNumber) {
+                              if (phoneNumber == null || phoneNumber.isEmpty) {
+                                return 'Invalid Phone Number!';
+                              }
+                              return null;
+                            },
+                            controller: phoneController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              labelText: 'Phone Number',
+                            ),
+                            keyboardType: TextInputType.phone,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^[()\d -]{1,15}$')),
+                            ],
+                            style:
+                                const TextStyle(fontSize: 16.0, color: Colors.black),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 6.0, left: 1.0, right: 1.0),
+                          child: TextFormField(
+                            controller: messageController,
+                            validator: (message) {
+                              if (message == null || message.isEmpty) {
+                                return 'Invalid Message!';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              labelText: 'Your Message',
+                            ),
+                            keyboardType: TextInputType.text,
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.black),
+                            maxLines: 3,
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(20),
+                          child: FilledButton(
+                            onPressed: validateInputs,
+                            child: const Text(
+                              "Submit",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     )),
               ),
@@ -465,6 +675,20 @@ class _HomePageState extends State<HomePage> {
               _onItemTapped(0, 'Home');
               return Future.value(false);
             });
+    }
+  }
+
+  validateInputs() {
+    EasyLoading.show();
+    if (contactFormKey.currentState!.validate()) {
+      var name = nameController.text.toString().trim();
+      var organization = organizationController.text.toString().trim();
+      var email = emailController.text.toString().trim();
+      var phone = phoneController.text.toString().trim();
+      var message = messageController.text.toString().trim();
+      EasyLoading.show(status: '$name $organization $email $phone $message');
+    } else {
+      EasyLoading.dismiss();
     }
   }
 }

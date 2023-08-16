@@ -2566,8 +2566,10 @@ class _SolarPowerPlantsState extends State<SolarPowerPlants> {
         ],
         children: [
           TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'com.example.app',
+            // urlTemplate: 'https://api.mapbox.com/v4/mapbox.satellite/7/0/0.png',
+            urlTemplate: 'https://api.tomtom.com/map/1/tile/sat/main/7/0/0.jpg?key=xmNchI0V8o46HGZF2TTTmUuGBCwiUQCA',
+            // urlTemplate: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer',
+
           ),
         ],
       ),
