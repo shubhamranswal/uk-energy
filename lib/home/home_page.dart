@@ -3,7 +3,10 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:usac_map_app/maps/solar_projects.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:usac_map_app/data/text_content.dart';
+import 'package:usac_map_app/maps/map_page.dart';
 import 'package:usac_map_app/maps/test_map.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,13 +76,68 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      leading: const Icon(Icons.map),
+                      title: const Text('Power Plants PDF Map'),
+                      selected: _selectedIndex == 4,
+                      onTap: () {
+                        _onItemTapped(4, 'Power Plants PDF Map');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      leading: const Icon(Icons.map),
+                      title: const Text('Power Substations PDF Map'),
+                      selected: _selectedIndex == 5,
+                      onTap: () {
+                        _onItemTapped(5, 'Power Substations PDF Map');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      leading: const Icon(Icons.map),
+                      title: const Text('Hydro Power PDF Map'),
+                      selected: _selectedIndex == 6,
+                      onTap: () {
+                        _onItemTapped(6, 'Hydro Power PDF Map');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      leading: const Icon(Icons.map),
+                      title: const Text('Population Heat PDF Map'),
+                      selected: _selectedIndex == 7,
+                      onTap: () {
+                        _onItemTapped(7, 'Population Heat PDF Map');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
                       leading: const Icon(Icons.info),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
-                      title: const Text('About'),
+                      title: const Text('About UK Energy'),
                       selected: _selectedIndex == 1,
                       onTap: () {
-                        _onItemTapped(1, 'About');
+                        _onItemTapped(1, 'UK Energy');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.info),
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      title: const Text('About USAC'),
+                      selected: _selectedIndex == 2,
+                      onTap: () {
+                        _onItemTapped(2, 'About USAC');
                         Navigator.pop(context);
                       },
                     ),
@@ -123,6 +181,8 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
+
+  var maps = ['pdf_maps/power.pdf', 'pdf_maps/power_substations.pdf', 'pdf_maps/hydro_power_plants.pdf', 'pdf_maps/population_heat.pdf'];
 
   _buildBody(int position) {
     switch (position) {
@@ -392,7 +452,7 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const SolarPowerPlants()));
+                                          const MapPage(value: 1, keyHead: 3,)));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
@@ -433,30 +493,25 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.all(10),
                 child: SingleChildScrollView(
                     child: Container(
-                  margin: const EdgeInsets.all(7.5),
-                  padding: const EdgeInsets.all(5),
-                  child: Column(
-                    children: [
-                      Image.asset('assests/USAC_Bulding_1.jpg'),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'U-SAC',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 40),
+                      margin: const EdgeInsets.all(7.5),
+                      padding: const EdgeInsets.all(5),
+                      child: Column(
+                        children: [
+                          Image.asset('assests/USAC_Bulding_1.jpg'),
+                          const SizedBox(height: 10,),
+                          const Text(
+                            'UK Energy',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          const Text(
+                            about_uk_energy,
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
                       ),
-                      const Text(
-                        'Uttarakhand Space Application Centre (USAC) is the nodal agency in Uttarakhand state for space-technology related activities and has the mandate to employ space-technology for the benefit of the state and its people. It was constituted as an autonomous organization in 2005, under the Department of Science & Technology, Government of Uttarakhand. The Government of Uttarakhand is acutely concerned about the states vulnerability to the consequences of the fragility of Himalayas and the inexorable intensification of climate change. It is very keen not to let these constraints come in the way of ensuring that the last person of the state gets access to a decent quality of life, without compromising on its responsibility as a trustee of our environment for future generations. To overcome the daunting challenges that Uttarakhand faces due to its formidable terrain and the fragility of Himalayas, enhanced use of technology, especially space technology, is of dire necessity. Hence, the prime objective of USAC is to explore and deploy geospatial technology for the development of the state. Consequently, USAC boasts of a close relationship with the Indian Space Research Organization (ISRO) that has benefited the state immensely and constantly strives to further develop and intensify this productive association.\n',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      const Text(
-                        'USAC works in crucial areas, such as Natural Resource Management, Water Resource Management, Glacier Studies, Environmental Monitoring, Land use & Urban planning, Disaster Mitigation, Web-based School Information System, Health Information System etc. Notable among the programmes that it has been implementing on an ongoing basis are State Natural Resource Management System (SNRMS), Forecasting Agriculture using Space, Agrometeorlogy & Land based observations (FASAL) programme, Coordinated programme on Horticulture Assessment and MAnagement using geoiNfromatics (CHAMAN), Development of National Forest Fire Danger Rating, among others.',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
-                  ),
-                )),
+                    )),
               ),
             ),
             onWillPop: () async {
@@ -465,8 +520,27 @@ class _HomePageState extends State<HomePage> {
             });
       case 2:
         return WillPopScope(
-            child: Container(
-              color: Colors.blueAccent,
+            child: Scaffold(
+              backgroundColor: Colors.orangeAccent,
+              body: Card(
+                margin: const EdgeInsets.all(10),
+                child: SingleChildScrollView(
+                    child: Container(
+                  margin: const EdgeInsets.all(7.5),
+                  padding: const EdgeInsets.all(5),
+                  child: Column(
+                    children: [
+                      Image.asset('assests/usac-logo.png'),
+                      const SizedBox(height: 10),
+                      const Text(
+                        about_usac,
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                )),
+              ),
             ),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
@@ -599,8 +673,8 @@ class _HomePageState extends State<HomePage> {
                               labelText: 'Contact Email',
                             ),
                             keyboardType: TextInputType.emailAddress,
-                            style:
-                                const TextStyle(fontSize: 16.0, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.black),
                           ),
                         ),
                         Container(
@@ -626,8 +700,8 @@ class _HomePageState extends State<HomePage> {
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'^[()\d -]{1,15}$')),
                             ],
-                            style:
-                                const TextStyle(fontSize: 16.0, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 16.0, color: Colors.black),
                           ),
                         ),
                         Container(
@@ -675,6 +749,42 @@ class _HomePageState extends State<HomePage> {
               _onItemTapped(0, 'Home');
               return Future.value(false);
             });
+      case 4:
+        return WillPopScope(
+            child: Center(
+                child: SfPdfViewer.asset('assests/pdf_maps/power.pdf')
+            ),
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            });
+      case 5:
+        return WillPopScope(
+            child: Center(
+                child: SfPdfViewer.asset('assests/pdf_maps/power_substations.pdf',)
+            ),
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            });
+      case 6:
+        return WillPopScope(
+            child: Center(
+                child: SfPdfViewer.asset('assests/pdf_maps/hydro_power_plants.pdf')
+            ),
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            });
+      case 7:
+        return WillPopScope(
+            child: Center(
+                child: SfPdfViewer.asset('assests/pdf_maps/population_heat.pdf')
+            ),
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            });
     }
   }
 
@@ -686,8 +796,8 @@ class _HomePageState extends State<HomePage> {
       var email = emailController.text.toString().trim();
       var phone = phoneController.text.toString().trim();
       var message = messageController.text.toString().trim();
-      EasyLoading.show(status: '$name $organization $email $phone $message');
-    } else {
+      var emailLink = 'mailto:aruna.dawre@gmail.com?subject=UK%20Energy%20-%20App%20Support&body=Respectfully%2C%20%0A%0AMyself%20$name%2C%20from%20$organization.%0A%0A$message%0A%0ARegards%2C%0A%0A$name%0A$organization%0A$email%0A$phone';
+      launchUrl(Uri.parse(emailLink));
       EasyLoading.dismiss();
     }
   }

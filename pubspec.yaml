@@ -16,6 +16,8 @@ dependencies:
   double_back_to_close_app: ^2.1.0
   flutter_easyloading: ^3.0.5
   shared_preferences: ^2.0.15
+  syncfusion_flutter_pdfviewer: ^22.2.9
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +49,7 @@ flutter:
   uses-material-design: true
   assets:
     - assests/USAC_Bulding_1.jpg
+    - assests/usac-logo.png
     - assests/logo.png
     - assests/uttarakhand_shasan.jpg
     - assests/thumbnails/solar_power_plant.webp
@@ -55,3 +58,11 @@ flutter:
     - assests/thumbnails/power_distribution.jpg
     - assests/thumbnails/cm.jpg
     - assests/thumbnails/governor.jpg
+
+
+
+    # PDF Maps
+    - assests/pdf_maps/power.pdf
+    - assests/pdf_maps/power_substations.pdf
+    - assests/pdf_maps/hydro_power_plants.pdf
+    - assests/pdf_maps/population_heat.pdf

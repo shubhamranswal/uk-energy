@@ -1,0 +1,1 @@
+final keyHeads = ['powerG_', 'powerT', 'powerD_', 'solar_'];
