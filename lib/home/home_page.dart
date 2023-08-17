@@ -3,6 +3,7 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:usac_map_app/data/text_content.dart';
@@ -120,6 +121,17 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      leading: const Icon(Icons.cloud_outlined),
+                      title: const Text('Whether Forecast'),
+                      selected: _selectedIndex == 8,
+                      onTap: () {
+                        _onItemTapped(8, 'Whether Forecast');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
                       leading: const Icon(Icons.info),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
@@ -182,7 +194,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  var maps = ['pdf_maps/power.pdf', 'pdf_maps/power_substations.pdf', 'pdf_maps/hydro_power_plants.pdf', 'pdf_maps/population_heat.pdf'];
+  var maps = [
+    'pdf_maps/power.pdf',
+    'pdf_maps/power_substations.pdf',
+    'pdf_maps/hydro_power_plants.pdf',
+    'pdf_maps/population_heat.pdf'
+  ];
 
   _buildBody(int position) {
     switch (position) {
@@ -451,8 +468,10 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MapPage(value: 1, keyHead: 3,)));
+                                      builder: (context) => const MapPage(
+                                            value: 1,
+                                            keyHead: 3,
+                                          )));
                             },
                             child: Container(
                               decoration: const BoxDecoration(
@@ -493,25 +512,27 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.all(10),
                 child: SingleChildScrollView(
                     child: Container(
-                      margin: const EdgeInsets.all(7.5),
-                      padding: const EdgeInsets.all(5),
-                      child: Column(
-                        children: [
-                          Image.asset('assests/USAC_Bulding_1.jpg'),
-                          const SizedBox(height: 10,),
-                          const Text(
-                            'UK Energy',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 40),
-                          ),
-                          const Text(
-                            about_uk_energy,
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
+                  margin: const EdgeInsets.all(7.5),
+                  padding: const EdgeInsets.all(5),
+                  child: Column(
+                    children: [
+                      Image.asset('assests/USAC_Bulding_1.jpg'),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    )),
+                      const Text(
+                        'UK Energy',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 40),
+                      ),
+                      const Text(
+                        about_uk_energy,
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                )),
               ),
             ),
             onWillPop: () async {
@@ -751,9 +772,8 @@ class _HomePageState extends State<HomePage> {
             });
       case 4:
         return WillPopScope(
-            child: Center(
-                child: SfPdfViewer.asset('assests/pdf_maps/power.pdf')
-            ),
+            child:
+                Center(child: SfPdfViewer.asset('assests/pdf_maps/power.pdf')),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
@@ -761,8 +781,9 @@ class _HomePageState extends State<HomePage> {
       case 5:
         return WillPopScope(
             child: Center(
-                child: SfPdfViewer.asset('assests/pdf_maps/power_substations.pdf',)
-            ),
+                child: SfPdfViewer.asset(
+              'assests/pdf_maps/power_substations.pdf',
+            )),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
@@ -770,8 +791,8 @@ class _HomePageState extends State<HomePage> {
       case 6:
         return WillPopScope(
             child: Center(
-                child: SfPdfViewer.asset('assests/pdf_maps/hydro_power_plants.pdf')
-            ),
+                child: SfPdfViewer.asset(
+                    'assests/pdf_maps/hydro_power_plants.pdf')),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
@@ -779,7 +800,16 @@ class _HomePageState extends State<HomePage> {
       case 7:
         return WillPopScope(
             child: Center(
-                child: SfPdfViewer.asset('assests/pdf_maps/population_heat.pdf')
+                child:
+                    SfPdfViewer.asset('assests/pdf_maps/population_heat.pdf')),
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            });
+      case 8:
+        return WillPopScope(
+            child: InAppWebView(
+              initialUrlRequest: URLRequest(url: Uri.parse('https://mosdac.gov.in/live/index_one.php?url_name=india')),
             ),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
@@ -796,7 +826,8 @@ class _HomePageState extends State<HomePage> {
       var email = emailController.text.toString().trim();
       var phone = phoneController.text.toString().trim();
       var message = messageController.text.toString().trim();
-      var emailLink = 'mailto:aruna.dawre@gmail.com?subject=UK%20Energy%20-%20App%20Support&body=Respectfully%2C%20%0A%0AMyself%20$name%2C%20from%20$organization.%0A%0A$message%0A%0ARegards%2C%0A%0A$name%0A$organization%0A$email%0A$phone';
+      var emailLink =
+          'mailto:aruna.dawre@gmail.com?subject=UK%20Energy%20-%20App%20Support&body=Respectfully%2C%20%0A%0AMyself%20$name%2C%20from%20$organization.%0A%0A$message%0A%0ARegards%2C%0A%0A$name%0A$organization%0A$email%0A$phone';
       launchUrl(Uri.parse(emailLink));
       EasyLoading.dismiss();
     }
