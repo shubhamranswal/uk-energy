@@ -1,5 +1,5 @@
 final data_powerG = {
-  "powerG_30.300____79.317": {
+  "powerG_30.3____79.317": {
     "Latitude": "30.300",
     "Longitude": "79.317",
     "Project name": "Rajwakti",
@@ -19,7 +19,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.917____78.400": {
+  "powerG_30.917____78.4": {
     "Latitude": "30.917",
     "Longitude": "78.400",
     "Project name": "Hanuman Ganga  ll",
@@ -79,7 +79,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.017____79.950": {
+  "powerG_30.017____79.95": {
     "Latitude": "30.017",
     "Longitude": "79.950",
     "Project name": "Sarju Stage-l",
@@ -219,7 +219,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.550____78.800": {
+  "powerG_30.55____78.8": {
     "Latitude": "30.550",
     "Longitude": "78.800",
     "Project name": "Bhilangana lll",
@@ -259,7 +259,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_29.950____78.900": {
+  "powerG_29.95____78.9": {
     "Latitude": "29.950",
     "Longitude": "78.900",
     "Project name": "Sarju Stage lll",
@@ -279,7 +279,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.917____78.250": {
+  "powerG_30.917____78.25": {
     "Latitude": "30.917",
     "Longitude": "78.250",
     "Project name": "Badyar",
@@ -319,7 +319,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "78  Cumecs"
   },
-  "powerG_30.000____79.917": {
+  "powerG_30.0____79.917": {
     "Latitude": "30.000",
     "Longitude": "79.917",
     "Project name": "Sarju Stage ll",
@@ -339,7 +339,7 @@ final data_powerG = {
     "Width": "3 m",
     "Parameters": ""
   },
-  "powerG_30.000____80.167": {
+  "powerG_30.0____80.167": {
     "Latitude": "30.000",
     "Longitude": "80.167",
     "Project name": "Tanga",
@@ -399,7 +399,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.617____79.000": {
+  "powerG_30.617____79.0": {
     "Latitude": "30.617",
     "Longitude": "79.000",
     "Project name": "Phata Byung",
@@ -419,7 +419,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "499245 Cumecs"
   },
-  "powerG_30.500____79.083": {
+  "powerG_30.5____79.083": {
     "Latitude": "30.500",
     "Longitude": "79.083",
     "Project name": "Singoli Bhatwari",
@@ -459,7 +459,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.033____80.150": {
+  "powerG_30.033____80.15": {
     "Latitude": "30.033",
     "Longitude": "80.150",
     "Project name": "Burthing",
@@ -479,7 +479,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.000____80.150": {
+  "powerG_30.0____80.15": {
     "Latitude": "30.000",
     "Longitude": "80.150",
     "Project name": "Phuliabagar",
@@ -519,7 +519,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.650____78.033": {
+  "powerG_30.65____78.033": {
     "Latitude": "30.650",
     "Longitude": "78.033",
     "Project name": "Barnigad",
@@ -539,7 +539,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_29.583____78.650": {
+  "powerG_29.583____78.65": {
     "Latitude": "29.583",
     "Longitude": "78.650",
     "Project name": "Kot-Buda Kedar",
@@ -559,7 +559,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.600____78.633": {
+  "powerG_30.6____78.633": {
     "Latitude": "30.600",
     "Longitude": "78.633",
     "Project name": "Jhala Koti",
@@ -599,7 +599,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.300____79.300": {
+  "powerG_30.3____79.3": {
     "Latitude": "30.300",
     "Longitude": "79.300",
     "Project name": "Devali",
@@ -619,7 +619,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.583____79.150": {
+  "powerG_30.583____79.15": {
     "Latitude": "30.583",
     "Longitude": "79.150",
     "Project name": "Kailganga",
@@ -639,7 +639,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.967____77.950": {
+  "powerG_30.967____77.95": {
     "Latitude": "30.967",
     "Longitude": "77.950",
     "Project name": "Hanol Tuni",
@@ -679,7 +679,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_31.050____78.733": {
+  "powerG_31.05____78.733": {
     "Latitude": "31.050",
     "Longitude": "78.733",
     "Project name": "Jalandhari Gad",
@@ -719,7 +719,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.683____79.500": {
+  "powerG_30.683____79.5": {
     "Latitude": "30.683",
     "Longitude": "79.500",
     "Project name": "Alaknanda",
@@ -739,7 +739,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.017____79.650": {
+  "powerG_30.017____79.65": {
     "Latitude": "30.017",
     "Longitude": "79.650",
     "Project name": "Melkhet",
@@ -779,7 +779,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.633____79.000": {
+  "powerG_30.633____79.0": {
     "Latitude": "30.633",
     "Longitude": "79.000",
     "Project name": "Rambara",
@@ -819,7 +819,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_29.850____80.150": {
+  "powerG_29.85____80.15": {
     "Latitude": "29.850",
     "Longitude": "80.150",
     "Project name": "Balgad",
@@ -879,7 +879,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "1.075 Cumecs"
   },
-  "powerG_30.200____80.217": {
+  "powerG_30.2____80.217": {
     "Latitude": "30.200",
     "Longitude": "80.217",
     "Project name": "Bogudhiyar Sarkaribhyol",
@@ -919,7 +919,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.383____79.400": {
+  "powerG_30.383____79.4": {
     "Latitude": "30.383",
     "Longitude": "79.400",
     "Project name": "Gohana Tal",
@@ -939,7 +939,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "198 Cumecs"
   },
-  "powerG_30.250____80.217": {
+  "powerG_30.25____80.217": {
     "Latitude": "30.250",
     "Longitude": "80.217",
     "Project name": "Mapang Bogudhiyar",
@@ -959,7 +959,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "40740 Cumecs"
   },
-  "powerG_30.100____80.617": {
+  "powerG_30.1____80.617": {
     "Latitude": "30.100",
     "Longitude": "80.617",
     "Project name": "Urthing Sobla",
@@ -979,7 +979,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_29.050____80.117": {
+  "powerG_29.05____80.117": {
     "Latitude": "29.050",
     "Longitude": "80.117",
     "Project name": "Tankpur",
@@ -1039,7 +1039,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.250____78.483": {
+  "powerG_30.25____78.483": {
     "Latitude": "30.250",
     "Longitude": "78.483",
     "Project name": "Koteshwar Dam",
@@ -1079,7 +1079,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.417____79.400": {
+  "powerG_30.417____79.4": {
     "Latitude": "30.417",
     "Longitude": "79.400",
     "Project name": "Vishnugad Pipalkoti",
@@ -1119,7 +1119,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "2103 Cumecs"
   },
-  "powerG_31.050____78.083": {
+  "powerG_31.05____78.083": {
     "Latitude": "31.050",
     "Longitude": "78.083",
     "Project name": "Naitwar Mori",
@@ -1199,7 +1199,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "7.48 Cumecs"
   },
-  "powerG_30.967____78.700": {
+  "powerG_30.967____78.7": {
     "Latitude": "30.967",
     "Longitude": "78.700",
     "Project name": "Loharinagpala",
@@ -1259,7 +1259,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_31.083____78.150": {
+  "powerG_31.083____78.15": {
     "Latitude": "31.083",
     "Longitude": "78.150",
     "Project name": "Jakhol Sankri",
@@ -1279,7 +1279,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.650____79.833": {
+  "powerG_30.65____79.833": {
     "Latitude": "30.650",
     "Longitude": "79.833",
     "Project name": "Jhelam Tamak",
@@ -1319,7 +1319,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.050____80.283": {
+  "powerG_30.05____80.283": {
     "Latitude": "30.050",
     "Longitude": "80.283",
     "Project name": "Gauriganga lllA",
@@ -1359,7 +1359,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "21.99 Cumecs"
   },
-  "powerG_29.900____80.300": {
+  "powerG_29.9____80.3": {
     "Latitude": "29.900",
     "Longitude": "80.300",
     "Project name": "Karmoli Lumti  Talli",
@@ -1379,7 +1379,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "13.2 Cumecs"
   },
-  "powerG_29.950____80.600": {
+  "powerG_29.95____80.6": {
     "Latitude": "29.950",
     "Longitude": "80.600",
     "Project name": "Chungar Chal",
@@ -1399,7 +1399,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": ""
   },
-  "powerG_30.000____80.717": {
+  "powerG_30.0____80.717": {
     "Latitude": "30.000",
     "Longitude": "80.717",
     "Project name": "Garba Tawaghat",
@@ -1419,7 +1419,7 @@ final data_powerG = {
     "Width": "",
     "Parameters": "5.29 Cumecs"
   },
-  "powerG_31.100____78.967": {
+  "powerG_31.1____78.967": {
     "Latitude": "31.100",
     "Longitude": "78.967",
     "Project name": "Karmoli",

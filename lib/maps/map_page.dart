@@ -7,32 +7,37 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usac_map_app/fontsize.dart';
-import 'package:usac_map_app/keyheads.dart';
+import '../keyheads.dart';
 
 class MapPage extends StatefulWidget {
   final String title;
   final int value;
   final int keyHead;
-  final Map<String, List<Map<String, String>>> data;
+  final Map<String, Map<String, String>> data;
   final List<double> longitudes;
   final List<double> latitudes;
 
-  const MapPage({super.key, required this.title, required this.value, required this.keyHead, required this.data, required this.longitudes, required this.latitudes});
+  const MapPage(
+      {super.key,
+      required this.title,
+      required this.value,
+      required this.keyHead,
+      required this.data,
+      required this.longitudes,
+      required this.latitudes});
 
   @override
   State<MapPage> createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
-
   @override
   void initState() {
     super.initState();
-    final data = widget.data;
     SharedPreferences.getInstance().then((prefs) {
       prefs.clear();
-      for (var key in data.keys) {
-        var encodedData = jsonEncode(data[key]);
+      for (var key in widget.data.keys) {
+        var encodedData = jsonEncode(widget.data[key]);
         prefs.setString(key, encodedData);
       }
     });
@@ -45,7 +50,7 @@ class _MapPageState extends State<MapPage> {
     List<Marker> points = [];
 
     List<double> latitudes = widget.latitudes;
-    List<double> longitudes = widget.latitudes;
+    List<double> longitudes = widget.longitudes;
 
     if (latitudes.length == longitudes.length) {
       for (int i = 0; i < latitudes.length; i++) {
@@ -61,53 +66,50 @@ class _MapPageState extends State<MapPage> {
             ),
             onTap: () async {
               final key = "$keyHeadValue${latitudes[i]}____${longitudes[i]}";
+              print(key);
               var result = await getData(key);
-              showDialog(
+              showModalBottomSheet(
                   context: context,
                   builder: (context) {
-                    return Container(
-                      margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 2,
-                          left: 20,
-                          right: 20,
-                          bottom: 20),
-                      padding: const EdgeInsets.all(10),
-                      width: 2.75 * MediaQuery.of(context).size.width / 3,
-                      decoration: BoxDecoration(
-                          color: Colors.blue[100],
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: Colors.black,
-                              width: 2,
-                              style: BorderStyle.solid)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Plant Details',
-                                style: TextStyle(fontSize: fontSizer(context)),
-                              ),
-                              Spacer(),
-                              IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  icon: const Icon(
-                                    Icons.close,
-                                    color: Colors.black,
-                                  ))
-                            ],
-                          ),
-                          Text(
-                            result
-                                .toString()
-                                .toUpperCase()
-                                .substring(2, result.toString().length - 2),
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(fontSize: fontSizer(context)),
-                          ),
-                        ],
+                    return  FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20, top: 10),
+                        width: 2.75 * MediaQuery.of(context).size.width / 3,
+                        decoration: BoxDecoration(
+                            color: Colors.blue[100],
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color: Colors.black,
+                                width: 2,
+                                style: BorderStyle.solid)),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Plant Details',
+                                  style: TextStyle(
+                                      fontSize: fontSizer(context) * 1.25),
+                                ),
+                                Spacer(),
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    icon: const Icon(
+                                      Icons.close,
+                                      color: Colors.black,
+                                    ))
+                              ],
+                            ),
+                            Text(
+                              result.toString().toUpperCase(),
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(fontSize: fontSizer(context)),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   });
@@ -213,15 +215,19 @@ class _MapPageState extends State<MapPage> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             MapPage(
-                                                              title: widget.title,
                                                               value: value,
                                                               keyHead: widget
-                                                                  .keyHead, data: widget.data, latitudes: widget.latitudes, longitudes: widget.longitudes,
+                                                                  .keyHead,
+                                                              title:
+                                                                  widget.title,
+                                                              data: widget.data,
+                                                              longitudes: widget
+                                                                  .longitudes,
+                                                              latitudes: widget
+                                                                  .longitudes,
                                                             )));
                                               });
-                                              if (kDebugMode) {
-                                                print(layers[value]);
-                                              }
+                                              print(layers[value]);
                                             } else {
                                               if (kDebugMode) {
                                                 print(
@@ -241,6 +247,28 @@ class _MapPageState extends State<MapPage> {
                           ),
                         ),
                       ),
+                      // Positioned(
+                      //   top: (MediaQuery.of(context).size.height -
+                      //       (MediaQuery.of(context).padding.top +
+                      //           kToolbarHeight)) /
+                      //       3,
+                      //   child: SingleChildScrollView(
+                      //     child: Column(
+                      //       children: <Widget>[
+                      //         for (int i = 0; i < 7; i++)
+                      //           ListTile(
+                      //             title: Text(
+                      //               layers[i],
+                      //             ),
+                      //             // leading: Radio(
+                      //             //   value: i,
+                      //             //   groupValue: _value,
+                      //             //   activeColor: const Color(0xFF6200EE), onChanged: (int? value) { print(layers[i]); },
+                      //             // ),
+                      //           ),
+                      //       ],
+                      //     ),
+                      //   ))
                     ],
                   );
                 });
@@ -256,7 +284,7 @@ class _MapPageState extends State<MapPage> {
                   maxZoom: 18,
                   minZoom: 1,
                   interactiveFlags:
-                  InteractiveFlag.doubleTapZoom | InteractiveFlag.drag,
+                      InteractiveFlag.doubleTapZoom | InteractiveFlag.drag,
                   onMapReady: () => EasyLoading.dismiss(),
                   center: currentCenter,
                   zoom: zoomLevel,
@@ -273,54 +301,54 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ],
               ),
-              onScaleStart: (details){
+              onScaleStart: (details) {
                 EasyLoading.showToast('Use buttons to zoom!');
               },
-              onScaleEnd: (details){
+              onScaleEnd: (details) {
                 EasyLoading.showToast('Use buttons to zoom!');
               },
-              onScaleUpdate: (details){
+              onScaleUpdate: (details) {
                 EasyLoading.showToast('Use buttons to zoom!');
               },
             ),
             Positioned(
-              right: 20,
+                right: 20,
                 top: 20,
                 child: Column(
-              children: [
-                InkWell(
-                  onTap: _zoomIn,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(5)
-                  ),
-                    height: 40,
-                    width: 40,
-                    child: const Center(
-                      child: Icon(Icons.add),
+                  children: [
+                    InkWell(
+                      onTap: _zoomIn,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(5)),
+                        height: 40,
+                        width: 40,
+                        child: const Center(
+                          child: Icon(Icons.add),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 5,),
-                InkWell(
-                  onTap: _zoomOut,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(5)
+                    SizedBox(
+                      height: 5,
                     ),
-                    height: 40,
-                    width: 40,
-                    child: const Center(
-                      child: Icon(Icons.remove),
+                    InkWell(
+                      onTap: _zoomOut,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(5)),
+                        height: 40,
+                        width: 40,
+                        child: const Center(
+                          child: Icon(Icons.remove),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ],
-            ))
+                  ],
+                ))
           ],
         ));
   }

@@ -524,9 +524,9 @@ class _HomePageState extends State<HomePage> {
                                               title: 'Solar Power Plants',
                                               value: 1,
                                               keyHead: 3,
-                                              data: data_solar_power_plants,
-                                              longitudes: longitudes_solar_power_plants,
-                                              latitudes: latitudes_solar_power_plants
+                                              data: data_powerG,
+                                              longitudes: longitudes_powerG,
+                                              latitudes: latitudes_powerG
                                             )));
                                   },
                                   child: Container(
@@ -739,9 +739,9 @@ class _HomePageState extends State<HomePage> {
                                             title: 'Power Generation',
                                             value: 1,
                                             keyHead: 0,
-                                            data: data_solar_power_plants,
-                                            longitudes: longitudes_solar_power_plants,
-                                            latitudes: latitudes_solar_power_plants,
+                                            data: data_powerG,
+                                            longitudes: longitudes_powerG,
+                                            latitudes: latitudes_powerG
                                         )));
                               },
                               child: Container(
@@ -845,9 +845,9 @@ class _HomePageState extends State<HomePage> {
                                           title: 'Solar Power Plants',
                                           value: 1,
                                           keyHead: 3,
-                                          data: data_solar_power_plants,
-                                          latitudes: latitudes_solar_power_plants,
-                                          longitudes: longitudes_solar_power_plants,
+                                          data: data_powerG,
+                                          longitudes: longitudes_powerG,
+                                          latitudes: latitudes_powerG
                                         )));
                               },
                               child: Container(
