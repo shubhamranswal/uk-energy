@@ -18,7 +18,7 @@ dependencies:
   shared_preferences: ^2.0.15
   syncfusion_flutter_pdfviewer: ^22.2.9
   url_launcher: ^6.1.12
-  flutter_inappwebview: ^5.7.2+3
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   flutter_test:
@@ -30,36 +30,37 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assests/logo.png"
-  image_path: "assests/logo.png"
+  adaptive_icon_foreground: "assests/logo.jpg"
+  image_path: "assests/logo.jpg"
   min_sdk_android: 21
   remove_alpha_ios: true
   web:
     generate: true
-    image_path: "assests/logo.png"
+    image_path: "assests/uttarakhand_shasan.jpg"
     background_color: "#hexcode"
   windows:
     generate: true
-    image_path: "assests/logo.png"
+    image_path: "assests/uttarakhand_shasan.jpg"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "assests/logo.png"
+    image_path: "assests/uttarakhand_shasan.jpg"
 
 flutter:
   uses-material-design: true
   assets:
     - assests/USAC_Bulding_1.jpg
     - assests/usac-logo.png
-    - assests/logo.png
+    - assests/logo.jpg
     - assests/uttarakhand_shasan.jpg
+
+    - assests/thumbnails/cm.jpg
+    - assests/thumbnails/governor.jpg
+
     - assests/thumbnails/solar_power_plant.webp
     - assests/thumbnails/power_transmission.webp
     - assests/thumbnails/power_generation.webp
     - assests/thumbnails/power_distribution.jpg
-    - assests/thumbnails/cm.jpg
-    - assests/thumbnails/governor.jpg
-
 
 
     # PDF Maps
@@ -67,3 +68,4 @@ flutter:
     - assests/pdf_maps/power_substations.pdf
     - assests/pdf_maps/hydro_power_plants.pdf
     - assests/pdf_maps/population_heat.pdf
+    - assests/pdf_maps/atlas.pdf

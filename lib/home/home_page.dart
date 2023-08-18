@@ -3,12 +3,12 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:usac_map_app/data/text_content.dart';
 import 'package:usac_map_app/maps/map_page.dart';
 import 'package:usac_map_app/maps/test_map.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +20,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   String _title = 'Home';
+
+  bool isLoading = true;
 
   double changingHeight = 0;
   double changingWidth = 0;
@@ -62,9 +64,6 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height - 40,
                 child: ListView(
                   children: [
-                    const SizedBox(
-                      height: 25,
-                    ),
                     ListTile(
                       leading: const Icon(Icons.home),
                       title: const Text('Home '),
@@ -73,6 +72,17 @@ class _HomePageState extends State<HomePage> {
                       selected: _selectedIndex == 0,
                       onTap: () {
                         _onItemTapped(0, 'Home');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.info_outline),
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      title: const Text('About UK Energy'),
+                      selected: _selectedIndex == 1,
+                      onTap: () {
+                        _onItemTapped(1, 'UK Energy');
                         Navigator.pop(context);
                       },
                     ),
@@ -123,6 +133,17 @@ class _HomePageState extends State<HomePage> {
                     ListTile(
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
+                      leading: const Icon(Icons.map),
+                      title: const Text('Atlas PDF Map'),
+                      selected: _selectedIndex == 9,
+                      onTap: () {
+                        _onItemTapped(9, 'Atlas PDF Map');
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      selectedTileColor: Colors.white,
+                      selectedColor: Colors.blue,
                       leading: const Icon(Icons.cloud_outlined),
                       title: const Text('Whether Forecast'),
                       selected: _selectedIndex == 8,
@@ -135,21 +156,10 @@ class _HomePageState extends State<HomePage> {
                       leading: const Icon(Icons.info),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
-                      title: const Text('About UK Energy'),
-                      selected: _selectedIndex == 1,
-                      onTap: () {
-                        _onItemTapped(1, 'UK Energy');
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.info),
-                      selectedTileColor: Colors.white,
-                      selectedColor: Colors.blue,
-                      title: const Text('About USAC'),
+                      title: const Text('About U-SAC'),
                       selected: _selectedIndex == 2,
                       onTap: () {
-                        _onItemTapped(2, 'About USAC');
+                        _onItemTapped(2, 'About U-SAC');
                         Navigator.pop(context);
                       },
                     ),
@@ -807,10 +817,48 @@ class _HomePageState extends State<HomePage> {
               return Future.value(false);
             });
       case 8:
+        var url = 'https://mosdac.gov.in/live/index_one.php?url_name=india';
         return WillPopScope(
-            child: InAppWebView(
-              initialUrlRequest: URLRequest(url: Uri.parse('https://mosdac.gov.in/live/index_one.php?url_name=india')),
-            ),
+          onWillPop: () async {
+            _onItemTapped(0, 'Home');
+            return Future.value(false);
+          },
+          child: Stack(
+            children: [
+              WebView(
+                initialUrl: url,
+                onPageStarted: (start){
+                  setState(() {
+                    isLoading = true;
+                  });
+                },
+                onPageFinished: (finish) {
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
+                javascriptMode: JavascriptMode.unrestricted,
+              ),
+              Visibility(
+                visible: isLoading,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                    color: Colors.blueAccent[100],
+                  ),
+                ),
+              )
+            ],
+          ),
+          // InAppWebView(
+          //   initialUrlRequest: URLRequest(url: Uri.parse('https://mosdac.gov.in/live/index_one.php?url_name=india')),
+          // )
+        );
+      case 9:
+        return WillPopScope(
+            child: Center(
+                child:
+                SfPdfViewer.asset('assests/pdf_maps/atlas.pdf')),
             onWillPop: () async {
               _onItemTapped(0, 'Home');
               return Future.value(false);
