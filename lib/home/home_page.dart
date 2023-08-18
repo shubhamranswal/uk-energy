@@ -11,7 +11,6 @@ import 'package:usac_map_app/data/solar.dart';
 import 'package:usac_map_app/data/text_content.dart';
 import 'package:usac_map_app/fontsize.dart';
 import 'package:usac_map_app/maps/map_page.dart';
-import 'package:usac_map_app/maps/test_map.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -416,7 +415,14 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const TestMap()));
+                                            builder: (context) => MapPage(
+                                                title: 'Power Generation',
+                                                value: 1,
+                                                keyHead: 0,
+                                                data: data_powerG,
+                                                longitudes: longitudes_powerG,
+                                                latitudes: latitudes_powerG
+                                            )));
                                   },
                                   child: Container(
                                     decoration: const BoxDecoration(
@@ -449,7 +455,7 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const TestMap()));
+                                            builder: (context) => const MapPage(title: 'Power Transmission', value: 1, keyHead: 1, data: {}, longitudes: [], latitudes: [])));
                                   },
                                   child: Container(
                                     decoration: const BoxDecoration(
@@ -487,7 +493,7 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const TestMap()));
+                                            builder: (context) => const MapPage(title: 'Power Distribution', value: 1, keyHead: 2, data: {}, longitudes: [], latitudes: [])));
                                   },
                                   child: Container(
                                     decoration: const BoxDecoration(
@@ -520,13 +526,13 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => MapPage(
+                                            builder: (context) => MapPageForSameLatLong(
                                               title: 'Solar Power Plants',
                                               value: 1,
                                               keyHead: 3,
-                                              data: data_powerG,
-                                              longitudes: longitudes_powerG,
-                                              latitudes: latitudes_powerG
+                                              sameLatLongData: data_solar_power_plants,
+                                              longitudes: longitudes_solar_power_plants,
+                                              latitudes: latitudes_solar_power_plants
                                             )));
                                   },
                                   child: Container(
@@ -775,7 +781,7 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const TestMap()));
+                                        builder: (context) => const MapPage(title: 'Power Transmission', value: 1, keyHead: 1, data: {}, longitudes: [], latitudes: [])));
                               },
                               child: Container(
                                 decoration: const BoxDecoration(
@@ -808,7 +814,7 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const TestMap()));
+                                        builder: (context) => const MapPage(title: 'Power Distribution', value: 1, keyHead: 2, data: {}, longitudes: [], latitudes: [])));
                               },
                               child: Container(
                                 decoration: const BoxDecoration(
@@ -841,13 +847,13 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => MapPage(
-                                          title: 'Solar Power Plants',
-                                          value: 1,
-                                          keyHead: 3,
-                                          data: data_powerG,
-                                          longitudes: longitudes_powerG,
-                                          latitudes: latitudes_powerG
+                                        builder: (context) => MapPageForSameLatLong(
+                                            title: 'Solar Power Plants',
+                                            value: 1,
+                                            keyHead: 3,
+                                            sameLatLongData: data_solar_power_plants,
+                                            longitudes: longitudes_solar_power_plants,
+                                            latitudes: latitudes_solar_power_plants
                                         )));
                               },
                               child: Container(
@@ -1203,39 +1209,46 @@ class _HomePageState extends State<HomePage> {
             });
       case 8:
         var url = 'https://mosdac.gov.in/live/index_one.php?url_name=india';
-        return WillPopScope(
-          onWillPop: () async {
-            _onItemTapped(0, 'Home');
-            return Future.value(false);
-          },
-          child: Stack(
-            children: [
-              WebView(
-                initialUrl: url,
-                onPageStarted: (start){
-                  setState(() {
-                    isLoading = true;
-                  });
-                },
-                onPageFinished: (finish) {
-                  setState(() {
-                    isLoading = false;
-                  });
-                },
-                javascriptMode: JavascriptMode.unrestricted,
-              ),
-              Visibility(
-                visible: isLoading,
-                child: Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: Colors.white,
-                    color: Colors.blueAccent[100],
-                  ),
+        if (kIsWeb){
+          launchUrl(Uri.parse(url), mode: LaunchMode.inAppWebView);
+          _onItemTapped(0, 'Home');
+          return Container();
+        }
+        else {
+          return WillPopScope(
+            onWillPop: () async {
+              _onItemTapped(0, 'Home');
+              return Future.value(false);
+            },
+            child: Stack(
+              children: [
+                WebView(
+                  initialUrl: url,
+                  onPageStarted: (start){
+                    setState(() {
+                      isLoading = true;
+                    });
+                  },
+                  onPageFinished: (finish) {
+                    setState(() {
+                      isLoading = false;
+                    });
+                  },
+                  javascriptMode: JavascriptMode.unrestricted,
                 ),
-              )
-            ],
-          ),
-        );
+                Visibility(
+                  visible: isLoading,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                      color: Colors.blueAccent[100],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          );
+        }
     // if (kIsWeb){
         //   // ignore: undefined_prefixed_name
         //   ui.platformViewRegistry.registerViewFactory(

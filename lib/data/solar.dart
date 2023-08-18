@@ -13,9 +13,9 @@ final data_solar_power_plants = {
     {
       "Name": "Esha Farswan C/o Unique Construction",
       "Address":
-      "Ms Esha Farswan, Unique Constructions Co, 965, Indra Nagar, Dehradun,\n",
+      "Ms Esha Farswan, Unique Constructions Co, 965, Indra Nagar, Dehradun.",
       "Capacity (kW)": "500",
-      "Location of Plant": "Harmani, Teshil  Chamoli, ",
+      "Location of Plant": "Harmani, Teshil - Chamoli",
       "Division": "Gopeshwar",
       "District": "Chamoli",
       "Latitude": "30.22555",
@@ -107,7 +107,7 @@ final data_solar_power_plants = {
   "solar_30.00466____78.41097": [
     {
       "Name": "Brijesh Narayan Goel",
-      "Address": "N-352, Shiwalik Nagr, haridwar\n",
+      "Address": "N-352, Shiwalik Nagr, Haridwar",
       "Capacity (kW)": "300",
       "Location of Plant": "Naithana, Satpuli, Pauri",
       "Division": "Nainidanda",
@@ -117,7 +117,7 @@ final data_solar_power_plants = {
     },
     {
       "Name": "Neeraj Gupta",
-      "Address": "4, Chakrata Road, Dehradun\n",
+      "Address": "4, Chakrata Road, Dehradun",
       "Capacity (kW)": "1000",
       "Location of Plant": "Naithana, Satpuli",
       "Division": "Nainidanda",
@@ -152,7 +152,7 @@ final data_solar_power_plants = {
   "solar_29.54389____78.44439": [
     {
       "Name": "Cyanic Solar Pvt. Ltd.",
-      "Address": "N-352, H-15, Shivalik Nagar, BHEL, Haridwar\n\n",
+      "Address": "N-352, H-15, Shivalik Nagar, BHEL, Haridwar",
       "Capacity (kW)": "300",
       "Location of Plant":
       "Village- Dhari, Tehsil-Satpuli, Distt- Pauri Garhwal.",
@@ -230,7 +230,7 @@ final data_solar_power_plants = {
   "solar_30.09046____78.42331": [
     {
       "Name": "Gangotri Devi",
-      "Address": "20, Beegha, Bapugram, Galli no. 3 , Rishikesh\n",
+      "Address": "20, Beegha, Bapugram, Galli no. 3 , Rishikesh",
       "Capacity (kW)": "200",
       "Location of Plant": "Kanda Walla, Patti-Sitonsyu, Block- Kot",
       "Division": "Pauri",
@@ -453,7 +453,7 @@ final data_solar_power_plants = {
   "solar_29.55356____78.42592": [
     {
       "Name": "Raysun Energy",
-      "Address": "4, Chakrata Road, Dehradun\n",
+      "Address": "4, Chakrata Road, Dehradun",
       "Capacity (kW)": "3000",
       "Location of Plant": "Mallethi, Satpuli, Pauri",
       "Division": "Nainidanda",
@@ -466,7 +466,7 @@ final data_solar_power_plants = {
     {
       "Name": "Renu Bisht",
       "Address":
-      "365, Rajeshwari Puram, Jogiwala, Nehrugram, Dehradun-248005\n",
+      "365, Rajeshwari Puram, Jogiwala, Nehrugram, Dehradun-248005",
       "Capacity (kW)": "200",
       "Location of Plant": "Vill-Goom, PO-Amola, Pauri",
       "Division": "Pauri",
@@ -504,7 +504,7 @@ final data_solar_power_plants = {
   "solar_30.40245____78.22494": [
     {
       "Name": "Shree Dhaneshwar Projects Pvt. Ltd",
-      "Address": "H No. 136, Tiloth Sera, Uttarkashi\n",
+      "Address": "H No. 136, Tiloth Sera, Uttarkashi",
       "Capacity (kW)": "2000",
       "Location of Plant":
       "Village- Purargaon, Dhanari, Block- Dunda, Distt- Uttarkashi.",
@@ -531,7 +531,7 @@ final data_solar_power_plants = {
     {
       "Name": "Starling Energy Private Limited",
       "Address":
-      "Prashant Gangwar H.N.85, Lane no -5, Adarsh vihar, Banjarawala, Dehradun \n\n",
+      "Prashant Gangwar H.N.85, Lane no -5, Adarsh vihar, Banjarawala, Dehradun",
       "Capacity (kW)": "1000",
       "Location of Plant":
       "Village- Dhyadi, Tehsil-Jakhanikhal, Distt- Pauri Garhwal.",
@@ -819,7 +819,7 @@ final data_solar_power_plants = {
   "solar_30.35014____78.18509": [
     {
       "Name": "Sid Solar Private Ltd",
-      "Address": "Lane No.4, Vani Vihar, Adhoiwala, Raipur\n",
+      "Address": "Lane No.4, Vani Vihar, Adhoiwala, Raipur",
       "Capacity (kW)": "200",
       "Location of Plant": "Chinyali, Chinyalisour",
       "Division": "Uttarkashi ",
@@ -831,7 +831,7 @@ final data_solar_power_plants = {
   "solar_30.42278____77.47326": [
     {
       "Name": "turnkey Energy Pvt Ltd",
-      "Address": "Aayush Goel Goel Sadan, Kalsi Road, Dakpatthar\n\n",
+      "Address": "Aayush Goel Goel Sadan, Kalsi Road, Dakpatthar",
       "Capacity (kW)": "1100",
       "Location of Plant": "Dasau, Chakrata, Dehradun",
       "Division": "Mohanpur",
@@ -843,7 +843,7 @@ final data_solar_power_plants = {
   "solar_29.58333____79.02413": [
     {
       "Name": "kusum rural development pvt ltd",
-      "Address": "Kusum Patwal 187, Aara Ghar, Dehradun,\n",
+      "Address": "Kusum Patwal 187, Aara Ghar, Dehradun.",
       "Capacity (kW)": "200",
       "Location of Plant": "Vill. Panao, Thailisain, Distt.-Pauri. ",
       "Division": "Kotdwar",
