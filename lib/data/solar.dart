@@ -97,8 +97,7 @@ final data_solar_power_plants = {
       "Name": "Arvachin Solutions Pvt Ltd",
       "Address": "152 Prempur, Kaulagarh, Dehradun",
       "Capacity (kW)": "500",
-      "Location of Plant":
-      "Village- Kumardhar, Tehsil- Jakhnidhar District –Tehri Garhwal.",
+      "Location of Plant": "Village- Kumardhar, Tehsil- Jakhnidhar District –Tehri Garhwal.",
       "Division": "Tehri",
       "District": "Tehri",
       "Latitude": "30.19089",

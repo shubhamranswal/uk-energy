@@ -1,11 +1,15 @@
-import 'dart:ui';
+import 'dart:ui' as ui;
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:usac_map_app/data/powerG.dart';
+import 'package:usac_map_app/data/solar.dart';
 import 'package:usac_map_app/data/text_content.dart';
+import 'package:usac_map_app/fontsize.dart';
 import 'package:usac_map_app/maps/map_page.dart';
 import 'package:usac_map_app/maps/test_map.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -37,9 +41,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    double fontsize = fontSizer(context);
+
     EasyLoading.dismiss();
     setState(() {
-      photoHeight = (MediaQuery.of(context).size.width - 120) / 4;
+      if(kIsWeb){
+        photoHeight = (MediaQuery.of(context).size.shortestSide - 120) / 5;
+      }
+      else {
+        photoHeight = (MediaQuery.of(context).size.width - 120) / 4;
+      }
     });
 
     Future.delayed(const Duration(seconds: 2)).then((value) {
@@ -47,6 +59,13 @@ class _HomePageState extends State<HomePage> {
         changingHeight = MediaQuery.of(context).size.height -
             (MediaQuery.of(context).padding.top + kToolbarHeight + 60);
         changingWidth = MediaQuery.of(context).size.width - 60;
+
+        if (kIsWeb){
+          changingHeight = MediaQuery.of(context).size.height -
+              (MediaQuery.of(context).padding.top + kToolbarHeight + 120);
+          changingWidth = MediaQuery.of(context).size.width - 120;
+        }
+
       });
     });
     return Scaffold(
@@ -66,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ListTile(
                       leading: const Icon(Icons.home),
-                      title: const Text('Home '),
+                      title: Text('Home', style: TextStyle(fontSize: fontsize),),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       selected: _selectedIndex == 0,
@@ -79,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                       leading: const Icon(Icons.info_outline),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
-                      title: const Text('About UK Energy'),
+                      title: Text('About UK Energy', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 1,
                       onTap: () {
                         _onItemTapped(1, 'UK Energy');
@@ -90,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.map),
-                      title: const Text('Power Plants PDF Map'),
+                      title: Text('Power Plants PDF Map', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 4,
                       onTap: () {
                         _onItemTapped(4, 'Power Plants PDF Map');
@@ -101,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.map),
-                      title: const Text('Power Substations PDF Map'),
+                      title: Text('Power Substations PDF Map', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 5,
                       onTap: () {
                         _onItemTapped(5, 'Power Substations PDF Map');
@@ -112,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.map),
-                      title: const Text('Hydro Power PDF Map'),
+                      title: Text('Hydro Power PDF Map', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 6,
                       onTap: () {
                         _onItemTapped(6, 'Hydro Power PDF Map');
@@ -123,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.map),
-                      title: const Text('Population Heat PDF Map'),
+                      title: Text('Population Heat PDF Map', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 7,
                       onTap: () {
                         _onItemTapped(7, 'Population Heat PDF Map');
@@ -134,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.map),
-                      title: const Text('Atlas PDF Map'),
+                      title: Text('Atlas PDF Map', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 9,
                       onTap: () {
                         _onItemTapped(9, 'Atlas PDF Map');
@@ -145,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.cloud_outlined),
-                      title: const Text('Whether Forecast'),
+                      title: Text('Whether Forecast', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 8,
                       onTap: () {
                         _onItemTapped(8, 'Whether Forecast');
@@ -156,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                       leading: const Icon(Icons.info),
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
-                      title: const Text('About U-SAC'),
+                      title: Text('About U-SAC', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 2,
                       onTap: () {
                         _onItemTapped(2, 'About U-SAC');
@@ -167,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.person_2),
-                      title: const Text('Contact'),
+                      title: Text('Contact', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 3,
                       onTap: () {
                         _onItemTapped(3, 'Contact');
@@ -182,18 +201,21 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                       color: Colors.blue[300],
                       height: 40,
-                      child: const Center(
-                        child: Text(
-                          'Copyright @ USAC 2023',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 12),
-                        ),
+                      child: Center(
+                        child: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                              'Copyright @ U-SAC 2023',
+                              textAlign: TextAlign.left,
+                              maxLines: 1, style: TextStyle(fontSize: fontsize)
+                          ),
+                        )
                       ))),
             )
           ],
         ),
       ),
-      body: _buildBody(_selectedIndex),
+      body: _buildBody(_selectedIndex, fontsize),
     );
   }
 
@@ -211,24 +233,402 @@ class _HomePageState extends State<HomePage> {
     'pdf_maps/population_heat.pdf'
   ];
 
-  _buildBody(int position) {
+  _buildBody(int position, double fontsize) {
     switch (position) {
       case 0:
-        return DoubleBackToCloseApp(
-          snackBar: const SnackBar(content: Text('Double tap to exit app!')),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(color: Colors.white),
-            child: Stack(
-              children: [
-                //Left Container
-                Positioned(
-                  left: 20,
-                  top: 0,
-                  child: Transform(
-                    transform: Matrix4.identity(),
+        if (kIsWeb){
+          return DoubleBackToCloseApp(
+            snackBar: SnackBar(content: Text('Double tap to exit app!', style: TextStyle(fontSize: fontsize),),),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Stack(
+                children: [
+                  //Left Container
+                  Positioned(
+                    left: 40,
+                    top: 0,
+                    child: Transform(
+                      transform: Matrix4.identity(),
+                      child: AnimatedContainer(
+                        width: 80,
+                        height: changingHeight,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                          ),
+                        ),
+                        duration: const Duration(seconds: 4),
+                      ),
+                    ),
+                  ),
+                  //Top Container
+                  Positioned(
+                    right: 0,
+                    top: 40,
+                    child: AnimatedContainer(
+                        width: changingWidth,
+                        height: 80,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                          ),
+                        ),
+                        duration: const Duration(seconds: 4),
+                        padding: const EdgeInsets.only(right: 60, left: 0),
+                        child: Center(
+                          child: FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              'Uttarakhand Space Application Center',
+                              textAlign: TextAlign.left,
+                              maxLines: 1,
+                              style: TextStyle(fontSize: fontsize),
+                            ),
+                          )
+                        )),
+                  ),
+                  //Right Container
+                  Positioned(
+                    right: 40,
+                    bottom: 0,
+                    child: AnimatedContainer(
+                      width: 80,
+                      height: changingHeight,
+                      decoration: const ShapeDecoration(
+                        color: Colors.black12,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 0.50,
+                            strokeAlign: BorderSide.strokeAlignCenter,
+                          ),
+                        ),
+                      ),
+                      duration: const Duration(seconds: 4),
+                    ),
+                  ),
+                  //Bottom Container
+                  Positioned(
+                      left: 0,
+                      bottom: 40,
+                      child: AnimatedContainer(
+                        padding: const EdgeInsets.only(left: 60, right: 0),
+                        width: changingWidth,
+                        height: 80,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                          ),
+                        ),
+                        duration: const Duration(seconds: 4),
+                        child: Center(
+                          child: FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              'Copyright @ U-SAC 2023',
+                              textAlign: TextAlign.left,
+                              maxLines: 1, style: TextStyle(fontSize: fontsize)
+                            ),
+                          )
+                        ),
+                      )),
+                  //Home - Options
+                  Container(
+                      margin: const EdgeInsets.all(130),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  //Logo
+                                  Column(
+                                    children: [
+                                      Image.asset(
+                                          'assests/uttarakhand_shasan.jpg',
+                                        height: MediaQuery.of(context).size.height / 5,
+                                        width: MediaQuery.of(context).size.height / 5,),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        "U-SAC\nUttarakhand",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: fontsize),
+                                      )
+                                    ],
+                                  ),
+                                  //Governor
+                                  Column(
+                                    children: [
+                                      Image.asset(
+                                          'assests/thumbnails/governor.jpg',
+                                        height: MediaQuery.of(context).size.height / 5,
+                                        width: MediaQuery.of(context).size.height / 5,),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text("Governor\nUttarakhand",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: fontsize))
+                                    ],
+                                  ),
+                                  //CM
+                                  Column(
+                                    children: [
+                                      Image.asset('assests/thumbnails/cm.jpg',
+                                        height: MediaQuery.of(context).size.height / 5,
+                                        width: MediaQuery.of(context).size.height / 5,),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text("CM\nUttarakhand",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: fontsize))
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    EasyLoading.show();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const TestMap()));
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assests/thumbnails/power_generation.webp'),
+                                            fit: BoxFit.cover)),
+                                    height: MediaQuery.of(context).size.height / 5,
+                                    width: MediaQuery.of(context).size.height / 3,
+                                    child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter:
+                                        ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                        child: Container(
+                                          color: Colors.white.withOpacity(0.65),
+                                          child: Center(
+                                            child: Text(
+                                              'Power Generation', textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: fontsize),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    EasyLoading.show();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const TestMap()));
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assests/thumbnails/power_transmission.webp'),
+                                            fit: BoxFit.cover)),
+                                    height: MediaQuery.of(context).size.height / 5,
+                                    width: MediaQuery.of(context).size.height / 3,                              child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter:
+                                        ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                        child: Container(
+                                          color: Colors.white.withOpacity(0.65),
+                                          child: Center(
+                                            child: Text(
+                                              'Power Transmission', textAlign: TextAlign.center,
+                                              style: TextStyle(fontSize: fontsize),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    EasyLoading.show();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const TestMap()));
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assests/thumbnails/power_distribution.jpg'),
+                                            fit: BoxFit.cover)),
+                                    height: MediaQuery.of(context).size.height / 5,
+                                    width: MediaQuery.of(context).size.height / 3,
+                                    child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter:
+                                        ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                        child: Container(
+                                          color: Colors.white.withOpacity(0.65),
+                                          child: Center(
+                                            child: Text(
+                                              'Power Distribution',
+                                              style: TextStyle(fontSize: fontsize),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    EasyLoading.show();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MapPage(
+                                              title: 'Solar Power Plants',
+                                              value: 1,
+                                              keyHead: 3,
+                                              data: data_solar_power_plants,
+                                              longitudes: longitudes_solar_power_plants,
+                                              latitudes: latitudes_solar_power_plants
+                                            )));
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assests/thumbnails/solar_power_plant.webp'),
+                                            fit: BoxFit.cover)),
+                                    height: MediaQuery.of(context).size.height / 5,
+                                    width: MediaQuery.of(context).size.height / 3,                                   child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter:
+                                        ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                        child: Container(
+                                          color: Colors.white.withOpacity(0.65),
+                                          child: Center(
+                                            child: Text(
+                                              'Solar Power Plant',
+                                              style: TextStyle(fontSize: fontsize),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )),
+                ],
+              ),
+            ),
+          );
+        }
+        else {
+          return DoubleBackToCloseApp(
+            snackBar: SnackBar(content: Text('Double tap to exit app!', style: TextStyle(fontSize: fontsize),)),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Stack(
+                children: [
+                  //Left Container
+                  Positioned(
+                    left: 20,
+                    top: 0,
+                    child: Transform(
+                      transform: Matrix4.identity(),
+                      child: AnimatedContainer(
+                        width: 40,
+                        height: changingHeight,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                          ),
+                        ),
+                        duration: const Duration(seconds: 4),
+                      ),
+                    ),
+                  ),
+                  //Top Container
+                  Positioned(
+                    right: 0,
+                    top: 20,
+                    child: AnimatedContainer(
+                        width: changingWidth,
+                        height: 40,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                          ),
+                        ),
+                        duration: const Duration(seconds: 4),
+                        padding: const EdgeInsets.only(right: 60, left: 0),
+                        child: Center(
+                          child: FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              'Uttarakhand Space Application Center',
+                              textAlign: TextAlign.left,
+                              maxLines: 1,
+                              style: TextStyle(fontSize: fontsize),
+                            ),
+                          )
+                        )),
+                  ),
+                  //Right Container
+                  Positioned(
+                    right: 20,
+                    bottom: 0,
                     child: AnimatedContainer(
                       width: 40,
                       height: changingHeight,
@@ -244,276 +644,244 @@ class _HomePageState extends State<HomePage> {
                       duration: const Duration(seconds: 4),
                     ),
                   ),
-                ),
-                //Top Container
-                Positioned(
-                  right: 0,
-                  top: 20,
-                  child: AnimatedContainer(
-                      width: changingWidth,
-                      height: 40,
-                      decoration: const ShapeDecoration(
-                        color: Colors.black12,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.50,
-                            strokeAlign: BorderSide.strokeAlignCenter,
+                  //Bottom Container
+                  Positioned(
+                      left: 0,
+                      bottom: 20,
+                      child: AnimatedContainer(
+                        padding: const EdgeInsets.only(left: 60, right: 0),
+                        width: changingWidth,
+                        height: 40,
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 0.50,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
                           ),
                         ),
-                      ),
-                      duration: const Duration(seconds: 4),
-                      padding: const EdgeInsets.only(right: 60, left: 0),
-                      child: const Center(
-                        child: Text(
-                          'Uttarakhand Space Application Center',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(fontSize: 13),
+                        duration: const Duration(seconds: 4),
+                        child: Center(
+                          child: Text(
+                            'Copyright @ U-SAC 2023',
+                            textAlign: TextAlign.left,
+                            maxLines: 1,
+                            style: TextStyle(fontSize: fontsize),
+                          ),
                         ),
                       )),
-                ),
-                //Right Container
-                Positioned(
-                  right: 20,
-                  bottom: 0,
-                  child: AnimatedContainer(
-                    width: 40,
-                    height: changingHeight,
-                    decoration: const ShapeDecoration(
-                      color: Colors.black12,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 0.50,
-                          strokeAlign: BorderSide.strokeAlignCenter,
-                        ),
-                      ),
-                    ),
-                    duration: const Duration(seconds: 4),
-                  ),
-                ),
-                //Bottom Container
-                Positioned(
-                    left: 0,
-                    bottom: 20,
-                    child: AnimatedContainer(
-                      padding: const EdgeInsets.only(left: 60, right: 0),
-                      width: changingWidth,
-                      height: 40,
-                      decoration: const ShapeDecoration(
-                        color: Colors.black12,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.50,
-                            strokeAlign: BorderSide.strokeAlignCenter,
-                          ),
-                        ),
-                      ),
-                      duration: const Duration(seconds: 4),
-                      child: const Center(
-                        child: Text(
-                          'Copyright @ U-SAC 2023',
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                    )),
-                //Home - Options
-                Container(
-                    margin: const EdgeInsets.all(65),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                //Logo
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                        'assests/uttarakhand_shasan.jpg',
-                                        height: photoHeight),
-                                    const SizedBox(
-                                      height: 2,
-                                    ),
-                                    const Text(
-                                      "U-SAC\nUttarakhand",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 12),
-                                    )
-                                  ],
-                                ),
-                                //Governor
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                        'assests/thumbnails/governor.jpg',
-                                        height: photoHeight),
-                                    const SizedBox(
-                                      height: 2,
-                                    ),
-                                    const Text("Governor\nUttarakhand",
+                  //Home - Options
+                  Container(
+                      margin: const EdgeInsets.all(65),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  //Logo
+                                  Column(
+                                    children: [
+                                      Image.asset(
+                                          'assests/uttarakhand_shasan.jpg',
+                                          height: photoHeight),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text(
+                                        "U-SAC\nUttarakhand",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 12))
-                                  ],
-                                ),
-                                //CM
-                                Column(
-                                  children: [
-                                    Image.asset('assests/thumbnails/cm.jpg',
-                                        height: photoHeight),
-                                    const SizedBox(
-                                      height: 2,
-                                    ),
-                                    const Text("CM\nUttarakhand",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 12))
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              EasyLoading.show();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const TestMap()));
-                            },
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assests/thumbnails/power_generation.webp'),
-                                      fit: BoxFit.cover)),
-                              height: MediaQuery.of(context).size.height / 6,
-                              child: ClipRRect(
-                                child: BackdropFilter(
-                                  filter:
-                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                  child: Container(
-                                    color: Colors.white.withOpacity(0.65),
-                                    child: const Center(
-                                      child: Text(
-                                        'Power Generation',
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    ),
+                                        style: TextStyle(fontSize: fontsize * 0.75),
+                                      )
+                                    ],
                                   ),
-                                ),
+                                  //Governor
+                                  Column(
+                                    children: [
+                                      Image.asset(
+                                          'assests/thumbnails/governor.jpg',
+                                          height: photoHeight),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text("Governor\nUttarakhand",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: fontsize * 0.75))
+                                    ],
+                                  ),
+                                  //CM
+                                  Column(
+                                    children: [
+                                      Image.asset('assests/thumbnails/cm.jpg',
+                                          height: photoHeight),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text("CM\nUttarakhand",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: fontsize * 0.75))
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
-                          const Divider(),
-                          InkWell(
-                            onTap: () {
-                              EasyLoading.show();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const TestMap()));
-                            },
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assests/thumbnails/power_transmission.webp'),
-                                      fit: BoxFit.cover)),
-                              height: MediaQuery.of(context).size.height / 6,
-                              child: ClipRRect(
-                                child: BackdropFilter(
-                                  filter:
-                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                  child: Container(
-                                    color: Colors.white.withOpacity(0.65),
-                                    child: const Center(
-                                      child: Text(
-                                        'Power Transmission',
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Divider(),
-                          InkWell(
-                            onTap: () {
-                              EasyLoading.show();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const TestMap()));
-                            },
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assests/thumbnails/power_distribution.jpg'),
-                                      fit: BoxFit.cover)),
-                              height: MediaQuery.of(context).size.height / 6,
-                              child: ClipRRect(
-                                child: BackdropFilter(
-                                  filter:
-                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                  child: Container(
-                                    color: Colors.white.withOpacity(0.65),
-                                    child: const Center(
-                                      child: Text(
-                                        'Power Distribution',
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Divider(),
-                          InkWell(
-                            onTap: () {
-                              EasyLoading.show();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const MapPage(
+                            InkWell(
+                              onTap: () {
+                                EasyLoading.show();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MapPage(
+                                            title: 'Power Generation',
                                             value: 1,
-                                            keyHead: 3,
-                                          )));
-                            },
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assests/thumbnails/solar_power_plant.webp'),
-                                      fit: BoxFit.cover)),
-                              height: MediaQuery.of(context).size.height / 6,
-                              child: ClipRRect(
-                                child: BackdropFilter(
-                                  filter:
-                                      ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                  child: Container(
-                                    color: Colors.white.withOpacity(0.65),
-                                    child: const Center(
-                                      child: Text(
-                                        'Solar Power Plant',
-                                        style: TextStyle(fontSize: 20),
+                                            keyHead: 0,
+                                            data: data_solar_power_plants,
+                                            longitudes: longitudes_solar_power_plants,
+                                            latitudes: latitudes_solar_power_plants,
+                                        )));
+                              },
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assests/thumbnails/power_generation.webp'),
+                                        fit: BoxFit.cover)),
+                                height: MediaQuery.of(context).size.height / 6,
+                                child: ClipRRect(
+                                  child: BackdropFilter(
+                                    filter:
+                                    ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                    child: Container(
+                                      color: Colors.white.withOpacity(0.65),
+                                      child: Center(
+                                        child: Text(
+                                          'Power Generation',
+                                          style: TextStyle(fontSize: fontsize * 1.5),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    )),
-              ],
+                            const Divider(),
+                            InkWell(
+                              onTap: () {
+                                EasyLoading.show();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const TestMap()));
+                              },
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assests/thumbnails/power_transmission.webp'),
+                                        fit: BoxFit.cover)),
+                                height: MediaQuery.of(context).size.height / 6,
+                                child: ClipRRect(
+                                  child: BackdropFilter(
+                                    filter:
+                                    ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                    child: Container(
+                                      color: Colors.white.withOpacity(0.65),
+                                      child: Center(
+                                        child: Text(
+                                          'Power Transmission',
+                                          style: TextStyle(fontSize: fontsize * 1.5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Divider(),
+                            InkWell(
+                              onTap: () {
+                                EasyLoading.show();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const TestMap()));
+                              },
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assests/thumbnails/power_distribution.jpg'),
+                                        fit: BoxFit.cover)),
+                                height: MediaQuery.of(context).size.height / 6,
+                                child: ClipRRect(
+                                  child: BackdropFilter(
+                                    filter:
+                                    ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                    child: Container(
+                                      color: Colors.white.withOpacity(0.65),
+                                      child: Center(
+                                        child: Text(
+                                          'Power Distribution',
+                                          style: TextStyle(fontSize: fontsize * 1.5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Divider(),
+                            InkWell(
+                              onTap: () {
+                                EasyLoading.show();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MapPage(
+                                          title: 'Solar Power Plants',
+                                          value: 1,
+                                          keyHead: 3,
+                                          data: data_solar_power_plants,
+                                          latitudes: latitudes_solar_power_plants,
+                                          longitudes: longitudes_solar_power_plants,
+                                        )));
+                              },
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assests/thumbnails/solar_power_plant.webp'),
+                                        fit: BoxFit.cover)),
+                                height: MediaQuery.of(context).size.height / 6,
+                                child: ClipRRect(
+                                  child: BackdropFilter(
+                                    filter:
+                                    ui.ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                    child: Container(
+                                      color: Colors.white.withOpacity(0.65),
+                                      child: Center(
+                                        child: Text(
+                                          'Solar Power Plant',
+                                          style: TextStyle(fontSize: fontsize * 1.5),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )),
+                ],
+              ),
             ),
-          ),
-        );
+          );
+        }
       case 1:
         return WillPopScope(
             child: Scaffold(
@@ -526,19 +894,19 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(5),
                   child: Column(
                     children: [
-                      Image.asset('assests/USAC_Bulding_1.jpg'),
+                      Image.asset('assests/USAC_Bulding_1.jpg', height: MediaQuery.of(context).size.height / 3,),
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text(
+                      Text(
                         'UK Energy',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 40),
+                        style: TextStyle(fontSize: fontsize * 2),
                       ),
-                      const Text(
+                      Text(
                         about_uk_energy,
                         textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: fontsize),
                       ),
                     ],
                   ),
@@ -563,10 +931,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Image.asset('assests/usac-logo.png'),
                       const SizedBox(height: 10),
-                      const Text(
+                      Text(
                         about_usac,
                         textAlign: TextAlign.justify,
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: fontsize),
                       ),
                     ],
                   ),
@@ -587,38 +955,55 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(10),
-                          child: Image.asset('assests/USAC_Bulding_1.jpg'),
+                          child: Image.asset('assests/USAC_Bulding_1.jpg', height: MediaQuery.of(context).size.height / 3,),
                         ),
-                        const ListTile(
-                          leading: Icon(Icons.person),
-                          title: Text('Director'),
+                        ListTile(
+                          leading: const Icon(Icons.person),
+                          title: Text('Director', style: TextStyle(fontSize: fontsize * 1.25),),
                           subtitle:
-                              Text('Uttarakhand Space Application Center'),
+                              Text('Uttarakhand Space Application Center', style: TextStyle(fontSize: fontsize),),
                         ),
-                        const ListTile(
-                          leading: Icon(null),
+                        ListTile(
+                          leading: const Icon(null),
                           title: Text(
-                              'Department of IT, Good Governance & Science Technology'),
-                          subtitle: Text('Government of Uttarakhand'),
+                              'Department of IT, Good Governance & Science Technology', style: TextStyle(fontSize: fontsize),),
+                          subtitle: Text('Government of Uttarakhand', style: TextStyle(fontSize: fontsize),),
                         ),
-                        const ListTile(
-                          leading: Icon(Icons.email),
-                          title: Text('director-usac@uk.gov.in'),
+                        ListTile(
+                          leading: const Icon(Icons.email),
+                          title: InkWell(
+                            child: Text('director-usac@uk.gov.in', style: TextStyle(fontSize: fontsize),),
+                            onTap: (){
+                              launchUrl(Uri.parse('mailto:director-usac@uk.gov.in'));
+                            },
+                          ),
                         ),
                         const Divider(),
-                        const ListTile(
-                          leading: Icon(Icons.location_on),
-                          title: Text('Uttarakhand Antriksh Bhavan'),
+                        ListTile(
+                          leading: const Icon(Icons.location_on),
+                          title: Text('Uttarakhand Antriksh Bhavan', style: TextStyle(fontSize: fontsize),),
                           subtitle: Text(
-                              'Upper Aamwala, Nalapani, Dehradun, Uttarakhand'),
+                              'Upper Aamwala, Nalapani, Dehradun, Uttarakhand', style: TextStyle(fontSize: fontsize),),
                         ),
-                        const ListTile(
-                          leading: Icon(Icons.phone),
-                          title: Text('+91-135-2762098'),
+                        ListTile(
+                          leading: const Icon(Icons.phone),
+                          title: InkWell(
+                            child: Text('+91-135-2762098', style: TextStyle(fontSize: fontsize),),
+                            onTap: (){
+                              launchUrl(Uri.parse('tel:+911352762098'));
+                            },
+                          ),
                         ),
-                        const ListTile(
-                          leading: Icon(Icons.email),
-                          title: Text('usac_hq@yahoo.co.in'),
+                        ListTile(
+                          leading: const Icon(Icons.email),
+                          title: InkWell(
+                            child: Text('usac_hq@yahoo.co.in', style: TextStyle(fontSize: fontsize),),
+                          ),
+                          onTap: (){
+                            var emailLink =
+                                'mailto:usac_hq@yahoo.co.in';
+                            launchUrl(Uri.parse(emailLink));
+                          }
                         ),
                         const SizedBox(
                           height: 20,
@@ -627,10 +1012,10 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        const Text(
+                        Text(
                           'On send us a message directly!',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: fontsize * 1.15),
                         ),
                         const SizedBox(
                           height: 10,
@@ -754,8 +1139,8 @@ class _HomePageState extends State<HomePage> {
                               labelText: 'Your Message',
                             ),
                             keyboardType: TextInputType.text,
-                            style: const TextStyle(
-                                fontSize: 16.0, color: Colors.black),
+                            style: TextStyle(
+                                fontSize: fontsize, color: Colors.black),
                             maxLines: 3,
                           ),
                         ),
@@ -763,11 +1148,11 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(20),
                           child: FilledButton(
                             onPressed: validateInputs,
-                            child: const Text(
+                            child: Text(
                               "Submit",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 20.0,
+                                fontSize: fontsize,
                               ),
                             ),
                           ),
@@ -850,10 +1235,58 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          // InAppWebView(
-          //   initialUrlRequest: URLRequest(url: Uri.parse('https://mosdac.gov.in/live/index_one.php?url_name=india')),
-          // )
         );
+    // if (kIsWeb){
+        //   // ignore: undefined_prefixed_name
+        //   ui.platformViewRegistry.registerViewFactory(
+        //       'webpage',
+        //           (int viewId) => IFrameElement()
+        //         ..src = url
+        //         ..style.border = 'none');
+        //   return const Directionality(
+        //     textDirection: TextDirection.ltr,
+        //     child: SizedBox(
+        //       width: 640,
+        //       height: 360,
+        //       child: HtmlElementView(viewType: 'webpage'),
+        //     ),
+        //   );
+        // }
+        // else {
+        //   return WillPopScope(
+        //     onWillPop: () async {
+        //       _onItemTapped(0, 'Home');
+        //       return Future.value(false);
+        //     },
+        //     child: Stack(
+        //       children: [
+        //         WebView(
+        //           initialUrl: url,
+        //           onPageStarted: (start){
+        //             setState(() {
+        //               isLoading = true;
+        //             });
+        //           },
+        //           onPageFinished: (finish) {
+        //             setState(() {
+        //               isLoading = false;
+        //             });
+        //           },
+        //           javascriptMode: JavascriptMode.unrestricted,
+        //         ),
+        //         Visibility(
+        //           visible: isLoading,
+        //           child: Center(
+        //             child: CircularProgressIndicator(
+        //               backgroundColor: Colors.white,
+        //               color: Colors.blueAccent[100],
+        //             ),
+        //           ),
+        //         )
+        //       ],
+        //     ),
+        //   );
+        // }
       case 9:
         return WillPopScope(
             child: Center(

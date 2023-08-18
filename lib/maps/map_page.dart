@@ -1,29 +1,34 @@
 import 'dart:convert';
+import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:usac_map_app/data/solar.dart';
+import 'package:usac_map_app/fontsize.dart';
 import 'package:usac_map_app/keyheads.dart';
 
 class MapPage extends StatefulWidget {
+  final String title;
   final int value;
   final int keyHead;
+  final Map<String, List<Map<String, String>>> data;
+  final List<double> longitudes;
+  final List<double> latitudes;
 
-  const MapPage(
-      {super.key, required this.value, required this.keyHead});
+  const MapPage({super.key, required this.title, required this.value, required this.keyHead, required this.data, required this.longitudes, required this.latitudes});
 
   @override
   State<MapPage> createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
-  final data = data_solar_power_plants;
 
   @override
   void initState() {
     super.initState();
+    final data = widget.data;
     SharedPreferences.getInstance().then((prefs) {
       prefs.clear();
       for (var key in data.keys) {
@@ -39,8 +44,8 @@ class _MapPageState extends State<MapPage> {
 
     List<Marker> points = [];
 
-    List<double> latitudes = latitudes_solar_power_plants;
-    List<double> longitudes = longitudes_solar_power_plants;
+    List<double> latitudes = widget.latitudes;
+    List<double> longitudes = widget.latitudes;
 
     if (latitudes.length == longitudes.length) {
       for (int i = 0; i < latitudes.length; i++) {
@@ -57,10 +62,6 @@ class _MapPageState extends State<MapPage> {
             onTap: () async {
               final key = "$keyHeadValue${latitudes[i]}____${longitudes[i]}";
               var result = await getData(key);
-              // result = result as Map<String, String>;
-              // for (var x in result.keys){
-              //   print(result[x].runtimeType);
-              // }
               showDialog(
                   context: context,
                   builder: (context) {
@@ -83,9 +84,9 @@ class _MapPageState extends State<MapPage> {
                         children: [
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Plant Details',
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: fontSizer(context)),
                               ),
                               Spacer(),
                               IconButton(
@@ -104,7 +105,7 @@ class _MapPageState extends State<MapPage> {
                                 .toUpperCase()
                                 .substring(2, result.toString().length - 2),
                             textAlign: TextAlign.justify,
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: fontSizer(context)),
                           ),
                         ],
                       ),
@@ -135,159 +136,217 @@ class _MapPageState extends State<MapPage> {
       'https://mt.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
     ];
 
-    int _value = widget.value;
-    var tile = urlTemplateList[_value];
+    int value = widget.value;
+    var tile = urlTemplateList[value];
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Solar Power Plants'),
-        backgroundColor: Colors.blue[100],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue[200],
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return Stack(
-                  children: [
-                    Positioned(
-                      top: (MediaQuery.of(context).size.height -
-                              (MediaQuery.of(context).padding.top +
-                                  kToolbarHeight)) /
-                          3,
-                      child: AnimatedContainer(
-                        duration: const Duration(seconds: 2),
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height -
-                              (MediaQuery.of(context).padding.top +
-                                  kToolbarHeight),
-                          color: Colors.blue[100],
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: const Text('Close')),
-                                  const Spacer(),
-                                  const Text('Select Layers',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black,
-                                          decoration: TextDecoration.none)),
-                                  const Spacer(),
-                                  TextButton(
-                                      onPressed: () {
-                                        // Navigator.pop(context);
-                                      },
-                                      child: const Text(''))
-                                ],
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  for (int i = 0; i < layers.length; i++)
-                                    ListTile(
-                                      title: Text(
-                                        layers[i],
-                                      ),
-                                      leading: Radio(
-                                        value: i,
-                                        groupValue: _value,
-                                        activeColor: const Color(0xFF6200EE),
-                                        onChanged: (int? value) {
-                                          if (value != null) {
-                                            setState(() {
-                                              Navigator.pop(context);
-                                              EasyLoading.show();
-                                              Navigator.pushReplacement(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          MapPage(
-                                                            value: value,
-                                                            keyHead:
-                                                                widget.keyHead,
-                                                          )));
-                                            });
-                                            print(layers[value]);
-                                          } else {
-                                            print(
-                                                "Can't perform the action right now!");
-                                            const SnackBar(
-                                                content: Text(
-                                                    "Can't perform the action right now!"));
-                                          }
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(widget.title),
+          backgroundColor: Colors.blue[100],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue[200],
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return Stack(
+                    children: [
+                      Positioned(
+                        top: (MediaQuery.of(context).size.height -
+                                (MediaQuery.of(context).padding.top +
+                                    kToolbarHeight)) /
+                            3,
+                        child: AnimatedContainer(
+                          duration: const Duration(seconds: 2),
+                          child: Container(
+                            padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height -
+                                (MediaQuery.of(context).padding.top +
+                                    kToolbarHeight),
+                            color: Colors.blue[100],
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
                                         },
+                                        child: const Text('Close')),
+                                    const Spacer(),
+                                    Text('Select Layers',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: fontSizer(context) * 1.15,
+                                            color: Colors.black,
+                                            decoration: TextDecoration.none)),
+                                    const Spacer(),
+                                    TextButton(
+                                        onPressed: () {
+                                          // Navigator.pop(context);
+                                        },
+                                        child: const Text(''))
+                                  ],
+                                ),
+                                Column(
+                                  children: <Widget>[
+                                    for (int i = 0; i < layers.length; i++)
+                                      ListTile(
+                                        title: Text(
+                                          layers[i],
+                                        ),
+                                        leading: Radio(
+                                          value: i,
+                                          groupValue: value,
+                                          activeColor: const Color(0xFF6200EE),
+                                          onChanged: (int? value) {
+                                            if (value != null) {
+                                              setState(() {
+                                                Navigator.pop(context);
+                                                EasyLoading.show();
+                                                Navigator.pushReplacement(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            MapPage(
+                                                              title: widget.title,
+                                                              value: value,
+                                                              keyHead: widget
+                                                                  .keyHead, data: widget.data, latitudes: widget.latitudes, longitudes: widget.longitudes,
+                                                            )));
+                                              });
+                                              if (kDebugMode) {
+                                                print(layers[value]);
+                                              }
+                                            } else {
+                                              if (kDebugMode) {
+                                                print(
+                                                    "Can't perform the action right now!");
+                                              }
+                                              const SnackBar(
+                                                  content: Text(
+                                                      "Can't perform the action right now!"));
+                                            }
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    // Positioned(
-                    //   top: (MediaQuery.of(context).size.height -
-                    //       (MediaQuery.of(context).padding.top +
-                    //           kToolbarHeight)) /
-                    //       3,
-                    //   child: SingleChildScrollView(
-                    //     child: Column(
-                    //       children: <Widget>[
-                    //         for (int i = 0; i < 7; i++)
-                    //           ListTile(
-                    //             title: Text(
-                    //               layers[i],
-                    //             ),
-                    //             // leading: Radio(
-                    //             //   value: i,
-                    //             //   groupValue: _value,
-                    //             //   activeColor: const Color(0xFF6200EE), onChanged: (int? value) { print(layers[i]); },
-                    //             // ),
-                    //           ),
-                    //       ],
-                    //     ),
-                    //   ))
-                  ],
-                );
-              });
-        },
-        child: const Icon(Icons.layers_outlined),
-      ),
-      body: FlutterMap(
-        options: MapOptions(
-          onMapReady: () => EasyLoading.dismiss(),
-          center: const LatLng(30.09373636046939, 79.01442398762491),
-          zoom: 7,
+                    ],
+                  );
+                });
+          },
+          child: const Icon(Icons.layers_outlined),
         ),
-        nonRotatedChildren: [
-          MarkerLayer(
-            markers: points,
-          ),
-        ],
-        children: [
-          TileLayer(
-            tileDisplay: const TileDisplay.fadeIn(),
-            urlTemplate: tile,
-          ),
-        ],
-      ),
-    );
+        body: Stack(
+          children: [
+            GestureDetector(
+              child: FlutterMap(
+                mapController: mapController,
+                options: MapOptions(
+                  maxZoom: 18,
+                  minZoom: 1,
+                  interactiveFlags:
+                  InteractiveFlag.doubleTapZoom | InteractiveFlag.drag,
+                  onMapReady: () => EasyLoading.dismiss(),
+                  center: currentCenter,
+                  zoom: zoomLevel,
+                ),
+                nonRotatedChildren: [
+                  MarkerLayer(
+                    markers: points,
+                  ),
+                ],
+                children: [
+                  TileLayer(
+                    tileDisplay: const TileDisplay.fadeIn(),
+                    urlTemplate: tile,
+                  ),
+                ],
+              ),
+              onScaleStart: (details){
+                EasyLoading.showToast('Use buttons to zoom!');
+              },
+              onScaleEnd: (details){
+                EasyLoading.showToast('Use buttons to zoom!');
+              },
+              onScaleUpdate: (details){
+                EasyLoading.showToast('Use buttons to zoom!');
+              },
+            ),
+            Positioned(
+              right: 20,
+                top: 20,
+                child: Column(
+              children: [
+                InkWell(
+                  onTap: _zoomIn,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(5)
+                  ),
+                    height: 40,
+                    width: 40,
+                    child: const Center(
+                      child: Icon(Icons.add),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5,),
+                InkWell(
+                  onTap: _zoomOut,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    height: 40,
+                    width: 40,
+                    child: const Center(
+                      child: Icon(Icons.remove),
+                    ),
+                  ),
+                ),
+              ],
+            ))
+          ],
+        ));
+  }
+
+  MapController mapController = MapController();
+  double zoomLevel = 7;
+  LatLng currentCenter = const LatLng(30.09373636046939, 79.01442398762491);
+
+  void _zoomOut() {
+    zoomLevel = zoomLevel - 0.5;
+    zoomLevel = max(zoomLevel, 1);
+    currentCenter = mapController.center;
+    mapController.move(currentCenter, zoomLevel);
+  }
+
+  void _zoomIn() {
+    zoomLevel = zoomLevel + 0.5;
+    zoomLevel = min(zoomLevel, 18);
+    currentCenter = mapController.center;
+    mapController.move(currentCenter, zoomLevel);
   }
 
   getData(String key) async {
     final prefs = await SharedPreferences.getInstance();
-    var data_item = prefs.getString(key);
-    var final_data = jsonDecode(data_item!);
-    return final_data;
+    var dataItem = prefs.getString(key);
+    var finalData = jsonDecode(dataItem!);
+    return finalData;
   }
 }
