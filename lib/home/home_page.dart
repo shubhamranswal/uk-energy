@@ -163,10 +163,10 @@ class _HomePageState extends State<HomePage> {
                       selectedTileColor: Colors.white,
                       selectedColor: Colors.blue,
                       leading: const Icon(Icons.cloud_outlined),
-                      title: Text('Whether Forecast', style: TextStyle(fontSize: fontsize),),
+                      title: Text('Weather Forecast', style: TextStyle(fontSize: fontsize),),
                       selected: _selectedIndex == 8,
                       onTap: () {
-                        _onItemTapped(8, 'Whether Forecast');
+                        _onItemTapped(8, 'Weather Forecast');
                         Navigator.pop(context);
                       },
                     ),
