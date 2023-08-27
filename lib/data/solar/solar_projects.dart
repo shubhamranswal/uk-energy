@@ -1,4 +1,4 @@
-final data_solar_power_plants = {
+final data__solar_power_plants = {
   "solar_30.22555____79.19587": [
     {
       "Name": "Abhay Singh Farswan Nanda Construction",

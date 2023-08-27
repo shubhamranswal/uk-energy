@@ -1,0 +1,1 @@
+final keyHeads = ['powerG_', 'powerTransmissionSubstations_', 'powerD_', 'solar_', 'smallHydroPowerPlants_'];
