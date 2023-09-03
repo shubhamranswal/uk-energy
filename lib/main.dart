@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:usac_map_app/data/power_distribution/power_distribution_susbstations.dart';
 import 'package:usac_map_app/data/power_generation/power_generation_projects.dart';
 import 'package:usac_map_app/data/power_generation/small_hydro_projects.dart';
 import 'package:usac_map_app/data/power_transmission/substations.dart';
@@ -31,6 +32,11 @@ void initData(){
 
     for (var key in data__power_transmission_substations.keys) {
       var encodedData = jsonEncode(data__power_transmission_substations[key]);
+      prefs.setString(key, encodedData);
+    }
+
+    for (var key in data__power_distribution_substations.keys) {
+      var encodedData = jsonEncode(data__power_distribution_substations[key]);
       prefs.setString(key, encodedData);
     }
 

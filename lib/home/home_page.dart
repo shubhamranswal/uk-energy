@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:usac_map_app/data/power_distribution/power_distribution_susbstations.dart';
 import 'package:usac_map_app/data/power_generation/power_generation_projects.dart';
 import 'package:usac_map_app/data/power_transmission/substations.dart';
 import 'package:usac_map_app/data/solar/solar_projects.dart';
@@ -507,8 +508,10 @@ class _HomePageState extends State<HomePage> {
                                             builder: (context) => MapPage(
                                                 title: 'Power Transmission',
                                                 keyHead: 1,
-                                                longitudes: longitudes_power_transmission_substations,
-                                                latitudes: latitudes_power_transmission_substations)));
+                                                longitudes:
+                                                    longitudes_power_transmission_substations,
+                                                latitudes:
+                                                    latitudes_power_transmission_substations)));
                                   },
                                   child: Container(
                                     decoration: const BoxDecoration(
@@ -551,11 +554,13 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const MapPage(
+                                            builder: (context) => MapPage(
                                                 title: 'Power Distribution',
                                                 keyHead: 2,
-                                                longitudes: [],
-                                                latitudes: [])));
+                                                longitudes:
+                                                    longitudes_power_distribution_substation,
+                                                latitudes:
+                                                    latitudes_power_distribution_substations)));
                                   },
                                   child: Container(
                                     decoration: const BoxDecoration(
@@ -858,8 +863,10 @@ class _HomePageState extends State<HomePage> {
                                         builder: (context) => MapPage(
                                             title: 'Power Transmission',
                                             keyHead: 1,
-                                            longitudes: longitudes_power_transmission_substations,
-                                            latitudes: latitudes_power_transmission_substations)));
+                                            longitudes:
+                                                longitudes_power_transmission_substations,
+                                            latitudes:
+                                                latitudes_power_transmission_substations)));
                               },
                               child: Container(
                                 decoration: const BoxDecoration(
@@ -893,11 +900,13 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const MapPage(
+                                        builder: (context) => MapPage(
                                             title: 'Power Distribution',
                                             keyHead: 2,
-                                            longitudes: [],
-                                            latitudes: [])));
+                                            longitudes:
+                                                longitudes_power_distribution_substation,
+                                            latitudes:
+                                                latitudes_power_distribution_substations)));
                               },
                               child: Container(
                                 decoration: const BoxDecoration(
